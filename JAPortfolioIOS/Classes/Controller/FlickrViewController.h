@@ -10,4 +10,6 @@
 
 @interface FlickrViewController : UIViewController
 
+- (void)retrieveBusinessObjects;
+
 @end

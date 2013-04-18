@@ -10,7 +10,7 @@
 
 typedef void (^JABasicBlock)(id object, NSError* error);
 
-@interface JARemoteManager : NSObject
+@interface JARemoteManager : NSObject <NSXMLParserDelegate>
 
 + (JARemoteManager*)sharedManager;
 

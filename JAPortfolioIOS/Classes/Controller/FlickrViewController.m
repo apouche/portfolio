@@ -14,6 +14,10 @@
 
 @implementation FlickrViewController
 
+#pragma mark -
+#pragma mark UIViewController
+#pragma mark -
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,6 +31,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    
+    
+    [self retrieveBusinessObjects];
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,5 +42,20 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark -
+#pragma mark FlickrViewController
+#pragma mark -
+
+- (void)retrieveBusinessObjects
+{
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+}
+
+
+#pragma mark -
+#pragma mark TableView
+#pragma mark -
 
 @end
