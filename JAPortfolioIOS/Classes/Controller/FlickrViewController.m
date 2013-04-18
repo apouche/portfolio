@@ -129,24 +129,45 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FlickrViewCell* cell = nil;
+    UITableViewCell* cell = nil;
     
-    cell = [tableView dequeueReusableCellWithIdentifier:kFlickrCellIdentifer];
+    if (indexPath.section == kFlickrSectionPhotos)
+        cell = [tableView dequeueReusableCellWithIdentifier:kFlickrCellIdentifer];
     
     if (cell == nil)
     {
-        cell = [[[FlickrViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:kFlickrCellIdentifer] autorelease];
+        // cell for photos
+        if (indexPath.section == kFlickrSectionPhotos)
+            cell = [[[FlickrViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                          reuseIdentifier:kFlickrCellIdentifer] autorelease];
+        
+        // cell for last section (load more)
+        else
+        {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                           reuseIdentifier:nil] autorelease];
+            UIActivityIndicatorView* loader = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+            
+            cell.contentView.backgroundColor = [UIColor blackColor];
+            loader.center = CGPointMake(cell.bounds.size.width*0.5f, 10);
+            [loader startAnimating];
+            [cell addSubview:loader];
+            
+        }
     }
     
-    [cell loadWithPhotos:[self photosAtIndexPath:indexPath]];
+    if (indexPath.section == kFlickrSectionPhotos)
+        [(FlickrViewCell*)cell loadWithPhotos:[self photosAtIndexPath:indexPath]];
+    
+    else
+        [self retrieveBusinessObjects];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return indexPath.section == kFlickrSectionPhotos ? 100 : 20;
+    return indexPath.section == kFlickrSectionPhotos ? 100 : 30;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
