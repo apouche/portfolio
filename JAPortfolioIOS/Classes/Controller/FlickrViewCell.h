@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface FlickrViewCell : UITableViewCell
+{
+
+}
+@property (nonatomic, retain) NSArray* previews;
 
 - (void)loadWithPhotos:(NSArray*)photos;
 

@@ -49,7 +49,7 @@
     _tableview.backgroundColor  = [UIColor clearColor];
     _tableview.delegate         = self;
     _tableview.dataSource       = self;
-    _tableview.userInteractionEnabled = NO;
+    _tableview.allowsSelection  = NO;
     
     [self.view addSubview:_tableview];
     
@@ -143,7 +143,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return indexPath.section == kFlickrSectionPhotos ? 60 : 20;
+    return indexPath.section == kFlickrSectionPhotos ? 90 : 20;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
