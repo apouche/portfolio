@@ -8,6 +8,11 @@
 
 #import "JARemoteManager.h"
 
+
+
+#define kFlickrAPIKey       @""
+#define kFlickrAPISecret    @""
+
 @implementation JARemoteManager
 
 + (JARemoteManager *)sharedManager
@@ -17,6 +22,11 @@
         singleton = [[JARemoteManager alloc] init];
     
     return singleton;
+}
+
+- (void)retrieveFlickrMostInteresting:(NSInteger)page completion:(JABasicBlock)completion
+{
+    
 }
 
 @end

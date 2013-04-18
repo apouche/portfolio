@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^JABasicBlock)(id object, NSError* error);
+
 @interface JARemoteManager : NSObject
 
 + (JARemoteManager*)sharedManager;
+
+- (void)retrieveFlickrMostInteresting:(NSInteger)page completion:(JABasicBlock)completion;
 
 @end

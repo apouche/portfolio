@@ -22,15 +22,17 @@
 		041C47AB172041740055B7B3 /* JALog.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47AA172041740055B7B3 /* JALog.m */; };
 		041C47AE172048FF0055B7B3 /* JAUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47AD172048FF0055B7B3 /* JAUtils.m */; };
 		041C47B117204D870055B7B3 /* JARemoteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47B017204D870055B7B3 /* JARemoteManager.m */; };
-		041C47F7172051370055B7B3 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47B7172051370055B7B3 /* AFHTTPClient.m */; };
-		041C47F8172051370055B7B3 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47B9172051370055B7B3 /* AFHTTPRequestOperation.m */; };
-		041C47F9172051370055B7B3 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47BB172051370055B7B3 /* AFImageRequestOperation.m */; };
-		041C47FA172051370055B7B3 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47BD172051370055B7B3 /* AFJSONRequestOperation.m */; };
-		041C47FB172051370055B7B3 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47BF172051370055B7B3 /* AFNetworkActivityIndicatorManager.m */; };
-		041C47FC172051370055B7B3 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47C2172051370055B7B3 /* AFPropertyListRequestOperation.m */; };
-		041C47FD172051370055B7B3 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47C4172051370055B7B3 /* AFURLConnectionOperation.m */; };
-		041C47FE172051370055B7B3 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47C6172051370055B7B3 /* AFXMLRequestOperation.m */; };
-		041C47FF172051370055B7B3 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47C8172051370055B7B3 /* UIImageView+AFNetworking.m */; };
+		041C47F7172051370055B7B3 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47B7172051370055B7B3 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		041C47F8172051370055B7B3 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47B9172051370055B7B3 /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		041C47F9172051370055B7B3 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47BB172051370055B7B3 /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		041C47FA172051370055B7B3 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47BD172051370055B7B3 /* AFJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		041C47FB172051370055B7B3 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47BF172051370055B7B3 /* AFNetworkActivityIndicatorManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		041C47FC172051370055B7B3 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47C2172051370055B7B3 /* AFPropertyListRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		041C47FD172051370055B7B3 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47C4172051370055B7B3 /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		041C47FE172051370055B7B3 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47C6172051370055B7B3 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		041C47FF172051370055B7B3 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47C8172051370055B7B3 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		041C4820172055420055B7B3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C481F172055420055B7B3 /* SystemConfiguration.framework */; };
+		041C4822172055500055B7B3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C4821172055500055B7B3 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +79,8 @@
 		041C47C6172051370055B7B3 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		041C47C7172051370055B7B3 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		041C47C8172051370055B7B3 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		041C481F172055420055B7B3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		041C4821172055500055B7B3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041C4822172055500055B7B3 /* MobileCoreServices.framework in Frameworks */,
+				041C4820172055420055B7B3 /* SystemConfiguration.framework in Frameworks */,
 				041C476A17203E6C0055B7B3 /* UIKit.framework in Frameworks */,
 				041C476C17203E6C0055B7B3 /* Foundation.framework in Frameworks */,
 				041C476E17203E6C0055B7B3 /* CoreGraphics.framework in Frameworks */,
@@ -113,6 +119,8 @@
 		041C476817203E6C0055B7B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				041C4821172055500055B7B3 /* MobileCoreServices.framework */,
+				041C481F172055420055B7B3 /* SystemConfiguration.framework */,
 				041C476917203E6C0055B7B3 /* UIKit.framework */,
 				041C476B17203E6C0055B7B3 /* Foundation.framework */,
 				041C476D17203E6C0055B7B3 /* CoreGraphics.framework */,
