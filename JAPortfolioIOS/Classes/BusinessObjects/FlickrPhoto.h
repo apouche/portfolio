@@ -17,4 +17,7 @@
 @property (nonatomic, retain) NSString* secret;
 @property (nonatomic, retain) NSString* title;
 
+
+- (NSURL*)urlImage;
+
 @end
