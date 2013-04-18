@@ -1,0 +1,3 @@
+[submodule "JAPortfolioIOS/Libs/AFNetworking"]
+	path = JAPortfolioIOS/Libs/AFNetworking
+	url = https://github.com/AFNetworking/AFNetworking
