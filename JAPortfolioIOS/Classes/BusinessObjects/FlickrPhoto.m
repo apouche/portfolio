@@ -10,4 +10,13 @@
 
 @implementation FlickrPhoto
 
+- (id)initWithJSONDictionary:(NSDictionary *)dic
+{
+    self = [super initWithJSONDictionary:dic];
+    if (self)
+    {
+        
+    }
+    return self;
+}
 @end

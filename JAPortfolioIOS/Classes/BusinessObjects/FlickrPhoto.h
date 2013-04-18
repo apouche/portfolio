@@ -10,4 +10,6 @@
 
 @interface FlickrPhoto : FlickrAbstractObject
 
+
+
 @end

@@ -19,11 +19,13 @@
     self = [super initWithJSONDictionary:dic];
     if (self)
     {
-        self.pages = [[dic objectForKey:@"pages"] integerValue];
-        self.page = [[dic objectForKey:@"page"] integerValue];
+        NSDictionary* jMain = [dic objectForKey:@"photos"];
+        
+        self.pages = [[jMain objectForKey:@"pages"] integerValue];
+        self.page = [[jMain objectForKey:@"page"] integerValue];
         
         // photos (json -> object)
-        NSArray* jPhotos        = [dic objectForKey:@"photo"];
+        NSArray* jPhotos        = [jMain objectForKey:@"photo"];
         NSMutableArray* photos  = [NSMutableArray arrayWithCapacity:jPhotos.count];
         for (NSDictionary* jPhoto in jPhotos)
         {
