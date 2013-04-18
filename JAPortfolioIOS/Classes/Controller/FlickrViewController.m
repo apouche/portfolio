@@ -51,6 +51,7 @@
     _tableview.dataSource       = self;
     _tableview.allowsSelection  = NO;
     _tableview.separatorStyle   = UITableViewCellSeparatorStyleNone;
+    _tableview.indicatorStyle   = UIScrollViewIndicatorStyleWhite;
     
     [self.view addSubview:_tableview];
     [self.view setBackgroundColor:[UIColor blackColor]];
