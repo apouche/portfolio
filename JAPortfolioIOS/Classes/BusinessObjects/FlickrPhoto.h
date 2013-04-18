@@ -10,6 +10,11 @@
 
 @interface FlickrPhoto : FlickrAbstractObject
 
+@property (nonatomic, assign) NSInteger farm;
+@property (nonatomic, assign) NSInteger server;
 
+@property (nonatomic, retain) NSString* owner;
+@property (nonatomic, retain) NSString* secret;
+@property (nonatomic, retain) NSString* title;
 
 @end
