@@ -14,6 +14,8 @@ typedef void (^JABasicBlock)(id object, NSError* error);
 
 + (JARemoteManager*)sharedManager;
 
+- (void)handleJsonResult:(id)json withClass:(Class)iClass completion:(JABasicBlock)completion;
+
 - (void)retrieveFlickrMostInteresting:(NSInteger)page completion:(JABasicBlock)completion;
 
 @end

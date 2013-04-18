@@ -33,6 +33,9 @@
 		04FB6BFF1720781D0022C2D9 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BBE1720781D0022C2D9 /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		04FB6C001720781D0022C2D9 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BC01720781D0022C2D9 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		04FB6C011720781D0022C2D9 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BC21720781D0022C2D9 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		04FB6C2417207E940022C2D9 /* FlickrPhotoList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6C2317207E940022C2D9 /* FlickrPhotoList.m */; };
+		04FB6C2717207EA90022C2D9 /* FlickrPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6C2617207EA90022C2D9 /* FlickrPhoto.m */; };
+		04FB6C2A17207ECB0022C2D9 /* FlickrAbstractObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6C2917207ECB0022C2D9 /* FlickrAbstractObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +84,12 @@
 		04FB6BC01720781D0022C2D9 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		04FB6BC11720781D0022C2D9 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		04FB6BC21720781D0022C2D9 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		04FB6C2217207E940022C2D9 /* FlickrPhotoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoList.h; sourceTree = "<group>"; };
+		04FB6C2317207E940022C2D9 /* FlickrPhotoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoList.m; sourceTree = "<group>"; };
+		04FB6C2517207EA90022C2D9 /* FlickrPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhoto.h; sourceTree = "<group>"; };
+		04FB6C2617207EA90022C2D9 /* FlickrPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhoto.m; sourceTree = "<group>"; };
+		04FB6C2817207ECB0022C2D9 /* FlickrAbstractObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAbstractObject.h; sourceTree = "<group>"; };
+		04FB6C2917207ECB0022C2D9 /* FlickrAbstractObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrAbstractObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +199,7 @@
 		041C479F172040800055B7B3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				04FB6C2117207E6F0022C2D9 /* BusinessObjects */,
 				041C47A8172041740055B7B3 /* Utils */,
 				041C47A0172040800055B7B3 /* Controller */,
 				041C47A5172040800055B7B3 /* Services */,
@@ -268,6 +278,19 @@
 				04FB6BC21720781D0022C2D9 /* UIImageView+AFNetworking.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		04FB6C2117207E6F0022C2D9 /* BusinessObjects */ = {
+			isa = PBXGroup;
+			children = (
+				04FB6C2217207E940022C2D9 /* FlickrPhotoList.h */,
+				04FB6C2317207E940022C2D9 /* FlickrPhotoList.m */,
+				04FB6C2517207EA90022C2D9 /* FlickrPhoto.h */,
+				04FB6C2617207EA90022C2D9 /* FlickrPhoto.m */,
+				04FB6C2817207ECB0022C2D9 /* FlickrAbstractObject.h */,
+				04FB6C2917207ECB0022C2D9 /* FlickrAbstractObject.m */,
+			);
+			path = BusinessObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +376,9 @@
 				04FB6BFF1720781D0022C2D9 /* AFURLConnectionOperation.m in Sources */,
 				04FB6C001720781D0022C2D9 /* AFXMLRequestOperation.m in Sources */,
 				04FB6C011720781D0022C2D9 /* UIImageView+AFNetworking.m in Sources */,
+				04FB6C2417207E940022C2D9 /* FlickrPhotoList.m in Sources */,
+				04FB6C2717207EA90022C2D9 /* FlickrPhoto.m in Sources */,
+				04FB6C2A17207ECB0022C2D9 /* FlickrAbstractObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
