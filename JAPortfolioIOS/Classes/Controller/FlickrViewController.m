@@ -8,6 +8,9 @@
 
 #import "FlickrViewController.h"
 
+// Managers
+#import "JARemoteManager.h"
+
 @interface FlickrViewController ()
 
 @end
@@ -50,6 +53,11 @@
 - (void)retrieveBusinessObjects
 {
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [[JARemoteManager sharedManager] retrieveFlickrMostInteresting:1
+                                                        completion:^(id object, NSError *error) {
+                                                            
+                                                        }];
     
 }
 
