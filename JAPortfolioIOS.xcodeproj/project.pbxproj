@@ -24,15 +24,15 @@
 		041C47B117204D870055B7B3 /* JARemoteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 041C47B017204D870055B7B3 /* JARemoteManager.m */; };
 		041C4820172055420055B7B3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C481F172055420055B7B3 /* SystemConfiguration.framework */; };
 		041C4822172055500055B7B3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C4821172055500055B7B3 /* MobileCoreServices.framework */; };
-		04FB6BF91720781D0022C2D9 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BB11720781D0022C2D9 /* AFHTTPClient.m */; };
-		04FB6BFA1720781D0022C2D9 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BB31720781D0022C2D9 /* AFHTTPRequestOperation.m */; };
-		04FB6BFB1720781D0022C2D9 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BB51720781D0022C2D9 /* AFImageRequestOperation.m */; };
-		04FB6BFC1720781D0022C2D9 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BB71720781D0022C2D9 /* AFJSONRequestOperation.m */; };
-		04FB6BFD1720781D0022C2D9 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BB91720781D0022C2D9 /* AFNetworkActivityIndicatorManager.m */; };
-		04FB6BFE1720781D0022C2D9 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BBC1720781D0022C2D9 /* AFPropertyListRequestOperation.m */; };
-		04FB6BFF1720781D0022C2D9 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BBE1720781D0022C2D9 /* AFURLConnectionOperation.m */; };
-		04FB6C001720781D0022C2D9 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BC01720781D0022C2D9 /* AFXMLRequestOperation.m */; };
-		04FB6C011720781D0022C2D9 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BC21720781D0022C2D9 /* UIImageView+AFNetworking.m */; };
+		04FB6BF91720781D0022C2D9 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BB11720781D0022C2D9 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		04FB6BFA1720781D0022C2D9 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BB31720781D0022C2D9 /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		04FB6BFB1720781D0022C2D9 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BB51720781D0022C2D9 /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		04FB6BFC1720781D0022C2D9 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BB71720781D0022C2D9 /* AFJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		04FB6BFD1720781D0022C2D9 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BB91720781D0022C2D9 /* AFNetworkActivityIndicatorManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		04FB6BFE1720781D0022C2D9 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BBC1720781D0022C2D9 /* AFPropertyListRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		04FB6BFF1720781D0022C2D9 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BBE1720781D0022C2D9 /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		04FB6C001720781D0022C2D9 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BC01720781D0022C2D9 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		04FB6C011720781D0022C2D9 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BC21720781D0022C2D9 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
