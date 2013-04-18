@@ -50,8 +50,10 @@
     _tableview.delegate         = self;
     _tableview.dataSource       = self;
     _tableview.allowsSelection  = NO;
+    _tableview.separatorStyle   = UITableViewCellSeparatorStyleNone;
     
     [self.view addSubview:_tableview];
+    [self.view setBackgroundColor:[UIColor blackColor]];
     
     // safe release at it's retained the view
     [_tableview release];
@@ -104,13 +106,13 @@
         return nil;
     
     // 3 photos per row
-    NSInteger floor = (CGFloat)path.row/3.f;
-    if (floor < _photos.count)
+    NSInteger row = path.row;
+    if (row*3 < _photos.count)
     {
         return [NSArray arrayWithObjects:
-                _photos[floor*3],
-                floor*3+1 < _photos.count ? _photos[floor*3+1] : nil,
-                floor*3+2 < _photos.count ? _photos[floor*3+2] : nil,
+                row*3+0 < _photos.count ? _photos[row*3+0] : nil,
+                row*3+1 < _photos.count ? _photos[row*3+1] : nil,
+                row*3+2 < _photos.count ? _photos[row*3+2] : nil,
                 nil];
     }
     
@@ -143,7 +145,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return indexPath.section == kFlickrSectionPhotos ? 90 : 20;
+    return indexPath.section == kFlickrSectionPhotos ? 100 : 20;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

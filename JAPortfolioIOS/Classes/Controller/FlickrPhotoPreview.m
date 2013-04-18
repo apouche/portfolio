@@ -23,6 +23,7 @@
     if (self) {
         _imageView = [[[UIImageView alloc] initWithFrame:self.bounds] autorelease];
         _imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+        _imageView.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:_imageView];
         
         self.backgroundColor = [UIColor redColor];

@@ -23,7 +23,7 @@
         {
             FlickrPhotoPreview* preview = [[FlickrPhotoPreview alloc] initWithFrame:CGRectZero];
             preview.frame = CGRectMake(i*(sPreview.width+12)+12,
-                                       0,
+                                       5,
                                        sPreview.width,
                                        sPreview.height);
             
@@ -34,6 +34,10 @@
         }
         
         self.previews = [NSArray arrayWithArray:previews];
+        
+        self.backgroundColor = [UIColor blackColor];
+        self.backgroundView.backgroundColor = [UIColor blackColor];
+        self.contentView.backgroundColor= [UIColor blackColor];;
     }
     return self;
 }
