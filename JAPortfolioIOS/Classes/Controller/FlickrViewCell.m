@@ -54,7 +54,6 @@
 
 - (void)loadWithPhotos:(NSArray *)photos
 {
-    
    for (FlickrPhotoPreview* preview in _previews)
    {
        NSInteger idx = [_previews indexOfObject:preview];

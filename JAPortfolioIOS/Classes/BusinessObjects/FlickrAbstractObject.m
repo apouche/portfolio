@@ -9,14 +9,14 @@
 #import "FlickrAbstractObject.h"
 
 @implementation FlickrAbstractObject
-@synthesize mainId = mainId_;
+@synthesize mainId = _mainId;
 
 - (id)initWithJSONDictionary:(NSDictionary *)dic
 {
     self = [super init];
     if (self)
     {
-        // basic init stuff goes here
+        self.mainId = [dic objectForKey:@"id"];
     }
     
     return self;

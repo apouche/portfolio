@@ -31,7 +31,7 @@
         {
             FlickrPhoto* photo = [[FlickrPhoto alloc] initWithJSONDictionary:jPhoto];
             
-            [photos addObject:jPhoto];
+            [photos addObject:photo];
             
             [photo release];
         }

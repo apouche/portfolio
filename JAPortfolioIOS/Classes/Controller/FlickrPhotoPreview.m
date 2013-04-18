@@ -8,6 +8,12 @@
 
 #import "FlickrPhotoPreview.h"
 
+// Categories
+#import "UIImageView+AFNetworking.h"
+
+// Business Objects
+#import "FlickrPhoto.h"
+
 @implementation FlickrPhotoPreview
 @synthesize imageView = _imageView;
 
@@ -16,7 +22,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         _imageView = [[[UIImageView alloc] initWithFrame:self.bounds] autorelease];
-        
+        _imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
         [self addSubview:_imageView];
         
         self.backgroundColor = [UIColor redColor];
@@ -33,7 +39,7 @@
 
 - (void)loadWithFlickrPhoto:(FlickrPhoto *)photo
 {
-    
+    [_imageView setImageWithURL:photo.urlImage];
 }
 /*
 // Only override drawRect: if you perform custom drawing.
