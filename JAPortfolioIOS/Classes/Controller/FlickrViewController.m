@@ -13,6 +13,7 @@
 
 // Views
 #import "FlickrViewCell.h"
+#import "FlickrPreviewViewCell.h"
 
 // Business Objects
 #import "FlickrPhotoList.h"
@@ -129,7 +130,7 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = nil;
+    FlickrViewCell* cell = nil;
     
     if (indexPath.section == kFlickrSectionPhotos)
         cell = [tableView dequeueReusableCellWithIdentifier:kFlickrCellIdentifer];
@@ -138,17 +139,16 @@
     {
         // cell for photos
         if (indexPath.section == kFlickrSectionPhotos)
-            cell = [[[FlickrViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                          reuseIdentifier:kFlickrCellIdentifer] autorelease];
+            cell = [[[FlickrPreviewViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                                 reuseIdentifier:kFlickrCellIdentifer] autorelease];
         
         // cell for last section (load more)
         else
         {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+            cell = [[[FlickrViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                            reuseIdentifier:nil] autorelease];
             UIActivityIndicatorView* loader = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
             
-            cell.contentView.backgroundColor = [UIColor blackColor];
             loader.center = CGPointMake(cell.bounds.size.width*0.5f, 10);
             [loader startAnimating];
             [cell addSubview:loader];
@@ -157,7 +157,7 @@
     }
     
     if (indexPath.section == kFlickrSectionPhotos)
-        [(FlickrViewCell*)cell loadWithPhotos:[self photosAtIndexPath:indexPath]];
+        [cell loadWithObject:[self photosAtIndexPath:indexPath]];
     
     else
         [self retrieveBusinessObjects];

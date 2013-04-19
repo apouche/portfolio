@@ -7,7 +7,7 @@
 //
 
 #import "FlickrViewCell.h"
-#import "FlickrPhotoPreview.h"
+
 
 @implementation FlickrViewCell
 @synthesize previews = _previews;
@@ -16,24 +16,6 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        CGSize sPreview = CGSizeMake(90, 90);
-        NSMutableArray* previews = [NSMutableArray arrayWithCapacity:3];
-        
-        for (NSInteger i = 0; i < 3; ++i)
-        {
-            FlickrPhotoPreview* preview = [[FlickrPhotoPreview alloc] initWithFrame:CGRectZero];
-            preview.frame = CGRectMake(i*(sPreview.width+12)+12,
-                                       5,
-                                       sPreview.width,
-                                       sPreview.height);
-            
-            [self addSubview:preview];
-            [previews addObject:preview];
-            
-            [preview release];
-        }
-        
-        self.previews = [NSArray arrayWithArray:previews];
         
         self.backgroundColor = [UIColor blackColor];
         self.backgroundView.backgroundColor = [UIColor blackColor];
@@ -56,13 +38,8 @@
     // Configure the view for the selected state
 }
 
-- (void)loadWithPhotos:(NSArray *)photos
+- (void)loadWithObject:(NSArray *)photos
 {
-   for (FlickrPhotoPreview* preview in _previews)
-   {
-       NSInteger idx = [_previews indexOfObject:preview];
-       
-       [preview loadWithFlickrPhoto:idx < photos.count ? photos[idx] : nil];
-   }
+    JALogW(@"This method will do nothing and should be overwritten in %@", self.class);
 }
 @end
