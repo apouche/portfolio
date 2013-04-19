@@ -23,10 +23,11 @@
     if (self) {
         _imageView = [[[UIImageView alloc] initWithFrame:self.bounds] autorelease];
         _imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-        _imageView.contentMode = UIViewContentModeScaleAspectFit;
+        _imageView.contentMode      = UIViewContentModeScaleAspectFit;
+        _imageView.image            = [UIImage imageNamed:@"flickr_logo"];
         [self addSubview:_imageView];
         
-        self.backgroundColor = [UIColor redColor];
+//        self.backgroundColor = [UIColor redColor];
     }
     return self;
 }
@@ -40,7 +41,7 @@
 
 - (void)loadWithFlickrPhoto:(FlickrPhoto *)photo
 {
-    [_imageView setImageWithURL:photo.urlImage];
+    [_imageView setImageWithURL:photo.urlImage placeholderImage:[UIImage imageNamed:@"flickr_logo"]];
 }
 /*
 // Only override drawRect: if you perform custom drawing.
