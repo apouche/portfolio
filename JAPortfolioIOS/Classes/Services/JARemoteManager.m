@@ -85,10 +85,11 @@
 
 - (void)retrieveFlickrMostInteresting:(NSInteger)page completion:(JABasicBlock)completion
 {
-    NSString* urlStr		= [NSString stringWithFormat:@"%@/?api_key=%@&method=%@&format=json&&nojsoncallback=1",
+    NSString* urlStr		= [NSString stringWithFormat:@"%@/?api_key=%@&method=%@&format=json&&nojsoncallback=1&page=%d",
 							   kFlickrAPIURLKey,
 							   kFlickrAPIKey,
-							   @"flickr.interestingness.getList"];
+							   @"flickr.interestingness.getList",
+                               page];
 	
     AFJSONRequestOperation* operation   = nil;
     NSURLRequest *request               = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];

@@ -36,7 +36,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // since the object is mutable, initalize it in the designated initializer
-        self.photos = [NSMutableArray array];
+        self.photos     = [NSMutableArray array];
+        _currentPage    = 1;
     }
     return self;
 }
@@ -87,15 +88,20 @@
 
 - (void)retrieveBusinessObjects
 {
-    self.view.backgroundColor = [UIColor whiteColor];
+    // don't do anything if we have completed all requests needed
+    if (_currentPage <= 0)
+        return;
     
-    [[JARemoteManager sharedManager] retrieveFlickrMostInteresting:1
+    [[JARemoteManager sharedManager] retrieveFlickrMostInteresting:_currentPage
                                                         completion:^(id object, NSError *error)
      {
          JALogD(@"Object Built : %@", object);
          FlickrPhotoList* list = object;
          
-         [_photos addObjectsFromArray:list.photos];
+         if (list.photos.count == 0)
+             _currentPage = -1;
+         
+             [_photos addObjectsFromArray:list.photos];
          
          [_tableview reloadData];
      }];
@@ -160,21 +166,28 @@
         [cell loadWithObject:[self photosAtIndexPath:indexPath]];
     
     else
+    {
+        ++_currentPage;
         [self retrieveBusinessObjects];
+
+    }
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return indexPath.section == kFlickrSectionPhotos ? 100 : 30;
+    return indexPath.section == kFlickrSectionPhotos ? 100 : _currentPage > 0 ? 30 : 0.f;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section== kFlickrSectionPhotos)
         return _photos.count/3;
     
-    return 1;
+    else if (section == kFlickrSectionLoadMore)
+        return _currentPage > 0 ? 1 : 0;
+    
+    return 0;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

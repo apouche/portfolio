@@ -18,6 +18,7 @@ typedef enum e_flickr_section
 }FlickrSection;
 @interface FlickrViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 {
+    NSInteger _currentPage;
 }
 
 @property (nonatomic, retain) UITableView*      tableview;
