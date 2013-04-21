@@ -26,6 +26,7 @@
 		
 		_imageView = [[UIImageView alloc] initWithFrame:self.bounds];
 		_imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+		_imageView.contentMode		= UIViewContentModeScaleAspectFill;
 		
 		[self addSubview:_imageView];
 		
@@ -35,7 +36,7 @@
 
 - (void)loadWithObject:(FlickrPhoto*)photo
 {
-	[_imageView setImageWithURL:photo.urlSmallSquare];
+	[_imageView setImageWithURL:photo.urlLarge placeholderImage:[UIImage imageNamed:@"flickr_logo"]];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

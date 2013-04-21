@@ -19,5 +19,5 @@
 
 
 - (NSURL*)urlSmallSquare;
-
+- (NSURL*)urlLarge;
 @end
