@@ -18,6 +18,6 @@
 @property (nonatomic, retain) NSString* title;
 
 
-- (NSURL*)urlImage;
-
+- (NSURL*)urlSmallSquare;
+- (NSURL*)urlLarge;
 @end

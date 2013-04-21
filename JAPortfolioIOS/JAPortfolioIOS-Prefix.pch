@@ -15,4 +15,8 @@
     #import <MobileCoreServices/MobileCoreServices.h>
 
     #import "JALog.h"
+	#import "Constants.h"
+	#import "AFNetworking.h"
+
+
 #endif

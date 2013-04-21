@@ -38,9 +38,15 @@
     [super dealloc];
 }
 
-- (NSURL*)urlImage
+- (NSURL*)urlSmallSquare
 {
     return [NSURL URLWithString:[NSString stringWithFormat:@"http://farm%d.staticflickr.com/%d/%@_%@_q.jpg",
+                                 _farm, _server, self.mainId, _secret]];
+}
+
+- (NSURL*)urlLarge
+{
+    return [NSURL URLWithString:[NSString stringWithFormat:@"http://farm%d.staticflickr.com/%d/%@_%@_z.jpg",
                                  _farm, _server, self.mainId, _secret]];
 }
 @end
