@@ -16,11 +16,13 @@
 	UICollectionViewDelegateFlowLayout
 >
 
+
 @property (nonatomic, retain)	NSArray*		photos;
 @property (nonatomic, retain)	FlickrPhoto*	currentPhoto;
 
 + (UICollectionViewLayout*)layout;
 
 - (FlickrPhoto*)objectAtIndexPath:(NSIndexPath*)path;
+- (void)scrollToCurrentPhoto:(BOOL)animated;
 
 @end

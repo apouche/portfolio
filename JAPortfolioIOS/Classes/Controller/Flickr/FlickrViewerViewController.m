@@ -65,6 +65,9 @@
 	self.view.backgroundColor = [UIColor redColor];
 	
 	[self.collectionView reloadData];
+	
+	// since the reloading process is not instant, we must call the scroll method after a small delay
+	[self performSelector:@selector(scrollToCurrentPhoto:) withObject:@NO afterDelay:0.1f];
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,6 +86,16 @@
 		return _photos[path.row];
 	
 	return nil;
+}
+
+- (void)scrollToCurrentPhoto:(BOOL)animated
+{
+	NSInteger idx = [_photos indexOfObject:_currentPhoto];
+	if (idx != NSNotFound)
+	{
+		CGRect rect = CGRectMake(idx*JAViewW(self.collectionView), 0, JAViewW(self.collectionView), JAViewH(self.collectionView));
+		[self.collectionView scrollRectToVisible:rect animated:NO];
+	}
 }
 
 #pragma mark -
