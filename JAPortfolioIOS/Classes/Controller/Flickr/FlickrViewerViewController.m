@@ -26,11 +26,12 @@
 + (UICollectionViewLayout *)layout
 {
 	UICollectionViewFlowLayout* layout	= [[[UICollectionViewFlowLayout alloc] init] autorelease];
-	layout.itemSize						= CGSizeMake(180, 460);
-	layout.minimumLineSpacing			= 0.f;
-	layout.minimumInteritemSpacing		= 0.f;
+	layout.itemSize						= JARealScreenSize;
+	layout.minimumLineSpacing			= 0;
+	layout.minimumInteritemSpacing		= 50.f;
 	layout.scrollDirection				= UICollectionViewScrollDirectionHorizontal;
-	
+	layout.footerReferenceSize			= CGSizeMake(320, 50);
+	layout.headerReferenceSize			= CGSizeZero;
 	return layout;
 }
 

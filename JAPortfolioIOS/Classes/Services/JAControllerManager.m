@@ -33,9 +33,9 @@
 	
 	[controller presentViewController:next animated:YES completion:nil];
 	
-	next.view.frame = CGRectMake(JAViewW(controller.view), 0, JAViewW(next.view), JAViewH(next.view));
+	next.view.frame = CGRectMake(JAViewW(controller.view), 20, JAViewW(next.view), JAViewH(next.view));
 	[UIView animateWithDuration:0.3f animations:^{
-		next.view.frame = CGRectMake(0, 0, JAViewW(next.view), JAViewH(next.view));
+		next.view.frame = CGRectMake(0, 20, JAViewW(next.view), JAViewH(next.view));
 	}];
 	
 	[next release];

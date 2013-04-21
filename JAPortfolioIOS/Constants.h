@@ -12,3 +12,6 @@
 #define JAViewY(v) (v).frame.origin.y
 #define JAViewW(v) (v).frame.size.width
 #define JAViewH(v) (v).frame.size.height
+
+#define JAScreenSize	 [[UIScreen mainScreen] bounds].size
+#define JARealScreenSize CGSizeMake(JAScreenSize.width, JAScreenSize.height-20.f)
