@@ -50,7 +50,7 @@
 {
 	self.tag = idx;
 	
-    [_imageView setImageWithURL:photo.urlImage placeholderImage:[UIImage imageNamed:@"flickr_logo"]];
+    [_imageView setImageWithURL:photo.urlSmallSquare placeholderImage:[UIImage imageNamed:@"flickr_logo"]];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

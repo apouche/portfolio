@@ -35,7 +35,7 @@
 
 - (void)loadWithObject:(FlickrPhoto*)photo
 {
-	[_imageView setImageWithURL:photo.urlImage];
+	[_imageView setImageWithURL:photo.urlSmallSquare];
 }
 /*
 // Only override drawRect: if you perform custom drawing.
