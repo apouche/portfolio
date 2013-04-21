@@ -24,7 +24,15 @@ typedef enum e_flickr_section
 @property (nonatomic, retain) UITableView*      tableview;
 @property (nonatomic, retain) NSMutableArray*   photos;
 
+#pragma mark Business Objects
+
 - (void)retrieveBusinessObjects;
+
 - (NSArray*)photosAtIndexPath:(NSIndexPath*)path;
+- (id)objectFromView:(UIView*)preview;
+
+#pragma mark Events
+
+- (void)onTapFlickrPreview:(id)sender;
 
 @end

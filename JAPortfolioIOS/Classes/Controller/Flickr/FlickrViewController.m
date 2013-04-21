@@ -14,6 +14,7 @@
 // Views
 #import "FlickrViewCell.h"
 #import "FlickrPreviewViewCell.h"
+#import "FlickrPhotoPreview.h"
 
 // Business Objects
 #import "FlickrPhotoList.h"
@@ -86,6 +87,8 @@
 #pragma mark FlickrViewController
 #pragma mark -
 
+#pragma mark Retreiving Business Objects
+
 - (void)retrieveBusinessObjects
 {
     // don't do anything if we have completed all requests needed
@@ -107,6 +110,8 @@
      }];
     
 }
+
+#pragma mark Accessing Business Objects
 
 - (NSArray *)photosAtIndexPath:(NSIndexPath *)path
 {
@@ -130,6 +135,11 @@
     
 }
 
+- (FlickrPhoto*)objectFromView:(UIView *)preview
+{
+	return preview.tag < _photos.count ? [_photos objectAtIndex:preview.tag] : nil;
+}
+
 #pragma mark -
 #pragma mark TableView
 #pragma mark -
@@ -145,8 +155,19 @@
     {
         // cell for photos
         if (indexPath.section == kFlickrSectionPhotos)
-            cell = [[[FlickrPreviewViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                                 reuseIdentifier:kFlickrCellIdentifer] autorelease];
+		{
+			FlickrPreviewViewCell* previewCell = nil;
+			
+			// build cell
+            previewCell = [[[FlickrPreviewViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+														reuseIdentifier:kFlickrCellIdentifer] autorelease];
+			
+			// update tap gesture
+			for (FlickrPhotoPreview* preview in previewCell.previews)
+				[preview.tapGesture addTarget:self action:@selector(onTapFlickrPreview:)];
+			
+			cell = previewCell;
+		}
         
         // cell for last section (load more)
         else
@@ -154,6 +175,7 @@
             cell = [[[FlickrViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                            reuseIdentifier:nil] autorelease];
 			
+			// add a basic loader
             UIActivityIndicatorView* loader = [[UIActivityIndicatorView alloc]
 											   initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
             
@@ -195,6 +217,19 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return     kFlickrSectionCount;
+}
+
+#pragma mark -
+#pragma mark Events
+#pragma mark -
+
+- (void)onTapFlickrPreview:(UITapGestureRecognizer*)tapGesture
+{
+	UIView* preview = tapGesture.view;
+	
+	FlickrPhoto* photo = [self objectFromView:preview];
+			
+	JALogD(@"Photo Tapped : %@", photo);
 }
 
 @end
