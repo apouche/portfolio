@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FlickrViewerViewController : UIViewController
+// Forward Declaration
+@class FlickrPhoto;
+
+@interface FlickrViewerViewController : UICollectionViewController <UIScrollViewDelegate>
+
+@property (nonatomic, readonly) UIScrollView*	scrollView;
+@property (nonatomic, retain)	NSArray*		photos;
+@property (nonatomic, retain)	FlickrPhoto*	currentPhoto;
+
+- (void)buildScrollViewWithPhotos:(NSArray*)photos selectedPhoto:(FlickrPhoto*)photo;
+- (void)retrieveVisibleImages;
 
 @end
