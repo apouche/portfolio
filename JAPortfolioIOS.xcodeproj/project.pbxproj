@@ -30,6 +30,7 @@
 		04A459B4172425DF00FC1E6D /* FlickrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A459B0172425DF00FC1E6D /* FlickrViewController.m */; };
 		04A459B8172434BA00FC1E6D /* JAControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A459B7172434BA00FC1E6D /* JAControllerManager.m */; };
 		04A459BB1724372900FC1E6D /* FlickrViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A459BA1724372900FC1E6D /* FlickrViewerViewController.m */; };
+		04A459CE17245B3800FC1E6D /* FlickrViewerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A459CD17245B3800FC1E6D /* FlickrViewerCell.m */; };
 		04FB6BF91720781D0022C2D9 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BB11720781D0022C2D9 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		04FB6BFA1720781D0022C2D9 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BB31720781D0022C2D9 /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		04FB6BFB1720781D0022C2D9 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB6BB51720781D0022C2D9 /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -83,6 +84,8 @@
 		04A459B91724372800FC1E6D /* FlickrViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrViewerViewController.h; sourceTree = "<group>"; };
 		04A459BA1724372900FC1E6D /* FlickrViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrViewerViewController.m; sourceTree = "<group>"; };
 		04A459BC17243A2300FC1E6D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		04A459CC17245B3800FC1E6D /* FlickrViewerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrViewerCell.h; sourceTree = "<group>"; };
+		04A459CD17245B3800FC1E6D /* FlickrViewerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrViewerCell.m; sourceTree = "<group>"; };
 		04FB6BB01720781D0022C2D9 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		04FB6BB11720781D0022C2D9 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		04FB6BB21720781D0022C2D9 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -276,6 +279,8 @@
 				04A459AC172425DF00FC1E6D /* FlickrPreviewViewCell.m */,
 				04A459AD172425DF00FC1E6D /* FlickrViewCell.h */,
 				04A459AE172425DF00FC1E6D /* FlickrViewCell.m */,
+				04A459CC17245B3800FC1E6D /* FlickrViewerCell.h */,
+				04A459CD17245B3800FC1E6D /* FlickrViewerCell.m */,
 				04A459AF172425DF00FC1E6D /* FlickrViewController.h */,
 				04A459B0172425DF00FC1E6D /* FlickrViewController.m */,
 				04A459B91724372800FC1E6D /* FlickrViewerViewController.h */,
@@ -423,6 +428,7 @@
 				04A459B4172425DF00FC1E6D /* FlickrViewController.m in Sources */,
 				04A459B8172434BA00FC1E6D /* JAControllerManager.m in Sources */,
 				04A459BB1724372900FC1E6D /* FlickrViewerViewController.m in Sources */,
+				04A459CE17245B3800FC1E6D /* FlickrViewerCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

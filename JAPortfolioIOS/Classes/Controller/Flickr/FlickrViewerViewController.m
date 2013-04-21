@@ -7,13 +7,15 @@
 //
 
 #import "FlickrViewerViewController.h"
+#import "FlickrViewerCell.h"
+
+#define kFlickrViewerCellIdentifer @"kFlickrViewerCellIdentifer"
 
 @interface FlickrViewerViewController ()
 
 @end
 
 @implementation FlickrViewerViewController
-@synthesize scrollView		= _scrollView;
 @synthesize photos			= _photos;
 @synthesize currentPhoto	= _currentPhoto;
 
@@ -21,13 +23,25 @@
 #pragma mark UIViewController
 #pragma mark -
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
++ (UICollectionViewLayout *)layout
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+	UICollectionViewFlowLayout* layout	= [[[UICollectionViewFlowLayout alloc] init] autorelease];
+	layout.itemSize						= CGSizeMake(180, 460);
+	layout.minimumLineSpacing			= 0.f;
+	layout.minimumInteritemSpacing		= 0.f;
+	layout.scrollDirection				= UICollectionViewScrollDirectionHorizontal;
+	
+	return layout;
+}
+
+- (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
+{
+	self = [super initWithCollectionViewLayout:layout];
+	if (self)
+	{
+		[self.collectionView registerClass:[FlickrViewerCell class] forCellWithReuseIdentifier:kFlickrViewerCellIdentifer];
+	}
+	return self;
 }
 
 - (void)dealloc
@@ -43,22 +57,15 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 	
-	_scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-	_scrollView.contentSize		= CGSizeMake(JAViewW(_scrollView)*_photos.count, JAViewH(_scrollView));
-	_scrollView.delegate		= self;
-	_scrollView.pagingEnabled	= YES;
-	
-	[self.view addSubview:_scrollView];
-	
-	// release objects that are retained by iOS view hierarchy
-	[_scrollView release];
+	self.collectionView.pagingEnabled = YES;
+	self.view.backgroundColor = [UIColor greenColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	self.view.backgroundColor = [UIColor redColor];
 	
-	[self buildScrollViewWithPhotos:_photos selectedPhoto:_currentPhoto];
+	[self.collectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,37 +78,47 @@
 #pragma mark FlickrViewerViewController
 #pragma mark -
 
-- (void)buildScrollViewWithPhotos:(NSArray*)photos selectedPhoto:(FlickrPhoto*)currentPhoto
+- (FlickrPhoto *)objectAtIndexPath:(NSIndexPath *)path
 {
-	for (NSInteger i = 0; i < photos.count; ++i)
-	{
-//		FlickrPhoto* photo  = [photos objectAtIndex:i];
-		
-		UIImageView* imageview		= [[UIImageView alloc] initWithFrame:CGRectZero];
-		imageview.autoresizingMask	= UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-		imageview.frame				= CGRectMake(i*JAViewW(_scrollView), 0, JAViewW(_scrollView), JAViewH(_scrollView));
-	}
-}
-
-- (void)retrieveVisibleImages
-{
-	NSMutableArray* visibleImages = [NSMutableArray arrayWithCapacity:_scrollView.subviews.count];
+	if (path.row < _photos.count)
+		return _photos[path.row];
 	
-	for (UIImageView* imageview in _scrollView.subviews)
-	{
-		if (JAViewX(imageview) >= _scrollView.contentOffset.x &&
-			JAViewX(imageview) < _scrollView.contentOffset.x + JAViewW(_scrollView))
-			[visibleImages addObject:imageview];
-	}
-	
-	
+	return nil;
 }
 
 #pragma mark -
 #pragma mark Delegates
 #pragma mark -
 
-#pragma mark UIScrollViewDelegate
+#pragma mark UICollectionViewDelegateFlowLayout
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+	FlickrViewerCell* cell = nil;
+	
+	cell = [collectionView dequeueReusableCellWithReuseIdentifier:kFlickrViewerCellIdentifer forIndexPath:indexPath];
+	
+	if (cell == nil)
+	{
+		cell = [[[FlickrViewerCell alloc] initWithFrame:self.view.bounds] autorelease];
+	}
+	
+	[cell loadWithObject:[self objectAtIndexPath:indexPath]];
+	
+	return cell;
+}
+
+#pragma mark UICollectionViewDataSource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+	return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+	return _photos.count;
+}
 
 
 
