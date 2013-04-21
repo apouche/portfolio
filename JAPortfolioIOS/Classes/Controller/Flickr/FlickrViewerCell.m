@@ -22,13 +22,16 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-		self.backgroundColor = [UIColor redColor];
 		
 		_imageView = [[UIImageView alloc] initWithFrame:self.bounds];
 		_imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
 		_imageView.contentMode		= UIViewContentModeScaleAspectFill;
+		_imageView.clipsToBounds	= YES;
 		
 		[self addSubview:_imageView];
+		
+		// safe release as it's retained in the view hierarchy
+		[_imageView release];
 		
     }
     return self;
