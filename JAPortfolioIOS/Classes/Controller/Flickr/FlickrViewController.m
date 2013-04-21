@@ -153,7 +153,9 @@
         {
             cell = [[[FlickrViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                            reuseIdentifier:nil] autorelease];
-            UIActivityIndicatorView* loader = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+			
+            UIActivityIndicatorView* loader = [[UIActivityIndicatorView alloc]
+											   initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
             
             loader.center = CGPointMake(cell.bounds.size.width*0.5f, 10);
             [loader startAnimating];
@@ -163,7 +165,7 @@
     }
     
     if (indexPath.section == kFlickrSectionPhotos)
-        [cell loadWithObject:[self photosAtIndexPath:indexPath]];
+        [cell loadWithObject:[self photosAtIndexPath:indexPath] fromList:_photos];
     
     else
     {

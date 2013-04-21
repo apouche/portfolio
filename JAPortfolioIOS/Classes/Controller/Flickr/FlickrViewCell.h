@@ -15,6 +15,6 @@
 
 @property (nonatomic, retain) NSArray* previews;
 
-- (void)loadWithObject:(id)object;
+- (void)loadWithObject:(NSArray *)photos fromList:(NSArray*)listPhotos;
 
 @end

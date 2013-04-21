@@ -39,13 +39,16 @@
     return self;
 }
 
-- (void)loadWithObject:(NSArray*)photos
+- (void)loadWithObject:(NSArray*)photos fromList:(NSArray *)listPhotos
 {
     for (FlickrPhotoPreview* preview in self.previews)
     {
-        NSInteger idx = [self.previews indexOfObject:preview];
+		 
+        NSInteger idx		= [self.previews indexOfObject:preview];
+		FlickrPhoto* photo	= idx < photos.count ? photos[idx] : nil;
+		NSInteger idxGlobal = [listPhotos indexOfObject:photo];
         
-        [preview loadWithFlickrPhoto:idx < photos.count ? photos[idx] : nil];
+        [preview loadWithFlickrPhoto:photo index:idxGlobal != NSNotFound ? idxGlobal : 0];
     }
 }
 

@@ -38,7 +38,7 @@
     // Configure the view for the selected state
 }
 
-- (void)loadWithObject:(NSArray *)photos
+- (void)loadWithObject:(NSArray *)photos fromList:(NSArray*)listPhotos
 {
     JALogW(@"This method will do nothing and should be overwritten in %@", self.class);
 }

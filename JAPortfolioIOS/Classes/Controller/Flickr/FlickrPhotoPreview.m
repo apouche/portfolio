@@ -15,7 +15,8 @@
 #import "FlickrPhoto.h"
 
 @implementation FlickrPhotoPreview
-@synthesize imageView = _imageView;
+@synthesize imageView	= _imageView;
+@synthesize tapGesture	= _tapGesture;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -25,22 +26,30 @@
         _imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
         _imageView.contentMode      = UIViewContentModeScaleAspectFit;
         _imageView.image            = [UIImage imageNamed:@"flickr_logo"];
+		
+		// no target at first
+		_tapGesture	= [[UITapGestureRecognizer alloc] initWithTarget:nil action:nil];
+		
         [self addSubview:_imageView];
+		[self addGestureRecognizer:_tapGesture];
         
-//        self.backgroundColor = [UIColor redColor];
+		// safe release as these object are retained by the ios hierarchy
+		[_imageView release];
+		[_tapGesture release];
+		
     }
     return self;
 }
 
 - (void)dealloc
 {
-    self.imageView = nil;
-    
     [super dealloc];
 }
 
-- (void)loadWithFlickrPhoto:(FlickrPhoto *)photo
+- (void)loadWithFlickrPhoto:(FlickrPhoto *)photo index:(NSUInteger)idx
 {
+	self.tag = idx;
+	
     [_imageView setImageWithURL:photo.urlImage placeholderImage:[UIImage imageNamed:@"flickr_logo"]];
 }
 /*

@@ -12,8 +12,9 @@
 
 @interface FlickrPhotoPreview : UIView
 
-@property (nonatomic, retain) UIImageView* imageView;
+@property (nonatomic, readonly) UIImageView* imageView;
+@property (nonatomic, readonly) UITapGestureRecognizer* tapGesture;
 
-- (void)loadWithFlickrPhoto:(FlickrPhoto*)photo;
+- (void)loadWithFlickrPhoto:(FlickrPhoto *)photo index:(NSUInteger)idx;
 
 @end
