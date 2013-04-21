@@ -37,8 +37,8 @@
 		04A4601A1724704800FC1E6D /* gly_airplane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A45E151724704700FC1E6D /* gly_airplane@2x.png */; };
 		04A4601B1724704800FC1E6D /* gly_baby.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A45E161724704700FC1E6D /* gly_baby.png */; };
 		04A4601C1724704800FC1E6D /* gly_baby@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A45E171724704700FC1E6D /* gly_baby@2x.png */; };
-		04A4601D1724704800FC1E6D /* gly_bagge.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A45E181724704700FC1E6D /* gly_bagge.png */; };
-		04A4601E1724704800FC1E6D /* gly_bagge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A45E191724704700FC1E6D /* gly_bagge@2x.png */; };
+		04A4601D1724704800FC1E6D /* gly_bagge_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A45E181724704700FC1E6D /* gly_bagge_star.png */; };
+		04A4601E1724704800FC1E6D /* gly_bagge_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A45E191724704700FC1E6D /* gly_bagge_star@2x.png */; };
 		04A4601F1724704800FC1E6D /* gly_balloon.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A45E1A1724704700FC1E6D /* gly_balloon.png */; };
 		04A460201724704800FC1E6D /* gly_balloon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A45E1B1724704700FC1E6D /* gly_balloon@2x.png */; };
 		04A460211724704800FC1E6D /* gly_bangaig.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A45E1C1724704700FC1E6D /* gly_bangaig.png */; };
@@ -377,8 +377,6 @@
 		04A4616E1724704800FC1E6D /* gly_test_tube@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A45F691724704700FC1E6D /* gly_test_tube@2x.png */; };
 		04A4616F1724704800FC1E6D /* gly_thermometer.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A45F6A1724704700FC1E6D /* gly_thermometer.png */; };
 		04A461701724704800FC1E6D /* gly_thermometer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A45F6B1724704700FC1E6D /* gly_thermometer@2x.png */; };
-		04A461711724704800FC1E6D /* gly_togo.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A45F6C1724704700FC1E6D /* gly_togo.png */; };
-		04A461721724704800FC1E6D /* gly_togo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A45F6D1724704700FC1E6D /* gly_togo@2x.png */; };
 		04A461731724704800FC1E6D /* gly_toolbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A45F6E1724704700FC1E6D /* gly_toolbox.png */; };
 		04A461741724704800FC1E6D /* gly_toolbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A45F6F1724704700FC1E6D /* gly_toolbox@2x.png */; };
 		04A461751724704800FC1E6D /* gly_tower.png in Resources */ = {isa = PBXBuildFile; fileRef = 04A45F701724704700FC1E6D /* gly_tower.png */; };
@@ -608,8 +606,8 @@
 		04A45E151724704700FC1E6D /* gly_airplane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gly_airplane@2x.png"; sourceTree = "<group>"; };
 		04A45E161724704700FC1E6D /* gly_baby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gly_baby.png; sourceTree = "<group>"; };
 		04A45E171724704700FC1E6D /* gly_baby@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gly_baby@2x.png"; sourceTree = "<group>"; };
-		04A45E181724704700FC1E6D /* gly_bagge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gly_bagge.png; sourceTree = "<group>"; };
-		04A45E191724704700FC1E6D /* gly_bagge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gly_bagge@2x.png"; sourceTree = "<group>"; };
+		04A45E181724704700FC1E6D /* gly_bagge_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gly_bagge_star.png; sourceTree = "<group>"; };
+		04A45E191724704700FC1E6D /* gly_bagge_star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gly_bagge_star@2x.png"; sourceTree = "<group>"; };
 		04A45E1A1724704700FC1E6D /* gly_balloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gly_balloon.png; sourceTree = "<group>"; };
 		04A45E1B1724704700FC1E6D /* gly_balloon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gly_balloon@2x.png"; sourceTree = "<group>"; };
 		04A45E1C1724704700FC1E6D /* gly_bangaig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gly_bangaig.png; sourceTree = "<group>"; };
@@ -948,8 +946,6 @@
 		04A45F691724704700FC1E6D /* gly_test_tube@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gly_test_tube@2x.png"; sourceTree = "<group>"; };
 		04A45F6A1724704700FC1E6D /* gly_thermometer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gly_thermometer.png; sourceTree = "<group>"; };
 		04A45F6B1724704700FC1E6D /* gly_thermometer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gly_thermometer@2x.png"; sourceTree = "<group>"; };
-		04A45F6C1724704700FC1E6D /* gly_togo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gly_togo.png; sourceTree = "<group>"; };
-		04A45F6D1724704700FC1E6D /* gly_togo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gly_togo@2x.png"; sourceTree = "<group>"; };
 		04A45F6E1724704700FC1E6D /* gly_toolbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gly_toolbox.png; sourceTree = "<group>"; };
 		04A45F6F1724704700FC1E6D /* gly_toolbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gly_toolbox@2x.png"; sourceTree = "<group>"; };
 		04A45F701724704700FC1E6D /* gly_tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gly_tower.png; sourceTree = "<group>"; };
@@ -1340,8 +1336,8 @@
 				04A45E151724704700FC1E6D /* gly_airplane@2x.png */,
 				04A45E161724704700FC1E6D /* gly_baby.png */,
 				04A45E171724704700FC1E6D /* gly_baby@2x.png */,
-				04A45E181724704700FC1E6D /* gly_bagge.png */,
-				04A45E191724704700FC1E6D /* gly_bagge@2x.png */,
+				04A45E181724704700FC1E6D /* gly_bagge_star.png */,
+				04A45E191724704700FC1E6D /* gly_bagge_star@2x.png */,
 				04A45E1A1724704700FC1E6D /* gly_balloon.png */,
 				04A45E1B1724704700FC1E6D /* gly_balloon@2x.png */,
 				04A45E1C1724704700FC1E6D /* gly_bangaig.png */,
@@ -1680,8 +1676,6 @@
 				04A45F691724704700FC1E6D /* gly_test_tube@2x.png */,
 				04A45F6A1724704700FC1E6D /* gly_thermometer.png */,
 				04A45F6B1724704700FC1E6D /* gly_thermometer@2x.png */,
-				04A45F6C1724704700FC1E6D /* gly_togo.png */,
-				04A45F6D1724704700FC1E6D /* gly_togo@2x.png */,
 				04A45F6E1724704700FC1E6D /* gly_toolbox.png */,
 				04A45F6F1724704700FC1E6D /* gly_toolbox@2x.png */,
 				04A45F701724704700FC1E6D /* gly_tower.png */,
@@ -1972,8 +1966,8 @@
 				04A4601A1724704800FC1E6D /* gly_airplane@2x.png in Resources */,
 				04A4601B1724704800FC1E6D /* gly_baby.png in Resources */,
 				04A4601C1724704800FC1E6D /* gly_baby@2x.png in Resources */,
-				04A4601D1724704800FC1E6D /* gly_bagge.png in Resources */,
-				04A4601E1724704800FC1E6D /* gly_bagge@2x.png in Resources */,
+				04A4601D1724704800FC1E6D /* gly_bagge_star.png in Resources */,
+				04A4601E1724704800FC1E6D /* gly_bagge_star@2x.png in Resources */,
 				04A4601F1724704800FC1E6D /* gly_balloon.png in Resources */,
 				04A460201724704800FC1E6D /* gly_balloon@2x.png in Resources */,
 				04A460211724704800FC1E6D /* gly_bangaig.png in Resources */,
@@ -2312,8 +2306,6 @@
 				04A4616E1724704800FC1E6D /* gly_test_tube@2x.png in Resources */,
 				04A4616F1724704800FC1E6D /* gly_thermometer.png in Resources */,
 				04A461701724704800FC1E6D /* gly_thermometer@2x.png in Resources */,
-				04A461711724704800FC1E6D /* gly_togo.png in Resources */,
-				04A461721724704800FC1E6D /* gly_togo@2x.png in Resources */,
 				04A461731724704800FC1E6D /* gly_toolbox.png in Resources */,
 				04A461741724704800FC1E6D /* gly_toolbox@2x.png in Resources */,
 				04A461751724704800FC1E6D /* gly_tower.png in Resources */,
