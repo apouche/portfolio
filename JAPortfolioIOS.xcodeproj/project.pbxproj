@@ -82,6 +82,7 @@
 		04A459B7172434BA00FC1E6D /* JAControllerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAControllerManager.m; sourceTree = "<group>"; };
 		04A459B91724372800FC1E6D /* FlickrViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrViewerViewController.h; sourceTree = "<group>"; };
 		04A459BA1724372900FC1E6D /* FlickrViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrViewerViewController.m; sourceTree = "<group>"; };
+		04A459BC17243A2300FC1E6D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		04FB6BB01720781D0022C2D9 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		04FB6BB11720781D0022C2D9 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		04FB6BB21720781D0022C2D9 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -173,6 +174,7 @@
 			children = (
 				041C477117203E6C0055B7B3 /* JAPortfolioIOS-Info.plist */,
 				041C477217203E6C0055B7B3 /* InfoPlist.strings */,
+				04A459BC17243A2300FC1E6D /* Constants.h */,
 				041C477517203E6C0055B7B3 /* main.m */,
 				041C477717203E6C0055B7B3 /* JAPortfolioIOS-Prefix.pch */,
 			);
