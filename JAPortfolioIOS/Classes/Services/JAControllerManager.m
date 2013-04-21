@@ -8,6 +8,9 @@
 
 #import "JAControllerManager.h"
 
+// Controllers
+#import "FlickrViewerViewController.h"
+
 @implementation JAControllerManager
 
 + (JAControllerManager *)sharedManager
@@ -21,7 +24,16 @@
 
 - (void)pushFlickrViewerFrom:(UIViewController*)controller  photo:(FlickrPhoto *)photo fromList:(NSArray *)photos
 {
-	[controller presentViewController:nil animated:YES completion:nil];
+	UIViewController* next = [[FlickrViewerViewController alloc] initWithNibName:nil bundle:nil];
+	next.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+	
+	[controller presentViewController:next animated:NO completion:nil];
+	
+//	[UIView animateWithDuration:0.3f animations:^{
+//		controller.view.frame = CGRectMake(0, 0, , <#CGFloat height#>)
+//	}];
+	
+	[next release];
 }
 
 

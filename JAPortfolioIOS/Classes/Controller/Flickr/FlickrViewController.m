@@ -10,6 +10,7 @@
 
 // Managers
 #import "JARemoteManager.h"
+#import "JAControllerManager.h"
 
 // Views
 #import "FlickrViewCell.h"
@@ -228,6 +229,8 @@
 	UIView* preview = tapGesture.view;
 	
 	FlickrPhoto* photo = [self objectFromView:preview];
+	
+	[[JAControllerManager sharedManager] pushFlickrViewerFrom:self photo:photo fromList:_photos];
 			
 	JALogD(@"Photo Tapped : %@", photo);
 }

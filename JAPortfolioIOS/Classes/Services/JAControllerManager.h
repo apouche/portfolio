@@ -13,6 +13,8 @@
 
 @interface JAControllerManager : NSObject
 
++ (JAControllerManager *)sharedManager;
+
 - (void)pushFlickrViewerFrom:(UIViewController*)controller photo:(FlickrPhoto *)photo fromList:(NSArray *)photos;
 
 @end
