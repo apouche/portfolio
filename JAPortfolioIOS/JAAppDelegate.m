@@ -39,6 +39,7 @@
     [self.window makeKeyAndVisible];
     
 	[[AFHTTPRequestOperationLogger sharedLogger] startLogging];
+	[[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
 	
     return YES;
 }
