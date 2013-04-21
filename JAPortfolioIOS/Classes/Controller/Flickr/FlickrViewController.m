@@ -62,12 +62,10 @@
     
     // safe release at it's retained the view
     [_tableview release];
+	
+	// retrieve business objects only once (so don't put it in the viewWillAppear method)
+	[self retrieveBusinessObjects];
     
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self retrieveBusinessObjects];
 }
 
 - (void)didReceiveMemoryWarning
