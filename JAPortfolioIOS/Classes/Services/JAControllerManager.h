@@ -16,5 +16,6 @@
 + (JAControllerManager *)sharedManager;
 
 - (void)pushFlickrViewerFrom:(UIViewController*)controller photo:(FlickrPhoto *)photo fromList:(NSArray *)photos;
+- (void)dismissController:(UIViewController*)controller;
 
 @end

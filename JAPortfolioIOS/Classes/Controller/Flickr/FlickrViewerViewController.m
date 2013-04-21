@@ -9,6 +9,9 @@
 #import "FlickrViewerViewController.h"
 #import "FlickrViewerCell.h"
 
+// Managers
+#import "JAControllerManager.h"
+
 #define kFlickrViewerCellIdentifer @"kFlickrViewerCellIdentifer"
 
 @interface FlickrViewerViewController ()
@@ -39,6 +42,7 @@
 	if (self)
 	{
 		[self.collectionView registerClass:[FlickrViewerCell class] forCellWithReuseIdentifier:kFlickrViewerCellIdentifer];
+		self.collectionView.pagingEnabled = YES;
 	}
 	return self;
 }
@@ -54,16 +58,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 	
-	self.collectionView.pagingEnabled = YES;
-	self.view.backgroundColor = [UIColor greenColor];
+	// ----------------------
+	// Back Button
+	// ----------------------
+	UIButton* backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	backButton.frame = CGRectMake(10, 10, 28, 28);
+	[backButton setImage:[UIImage imageNamed:@"gly_circle_west"] forState:UIControlStateNormal];
+	[backButton addTarget:self action:@selector(onTouchBackButton:) forControlEvents:UIControlEventTouchUpInside];
+	
+	[self.view addSubview:backButton];
+	
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	self.view.backgroundColor = [UIColor redColor];
 	
+	// reload data (based on _photos)
 	[self.collectionView reloadData];
 	
 	// since the reloading process is not instant, we must call the scroll method after a small delay
@@ -132,6 +144,13 @@
 	return _photos.count;
 }
 
+#pragma mark -
+#pragma mark Events
+#pragma mark -
 
+- (void)onTouchBackButton:(id)sender
+{
+	[[JAControllerManager sharedManager] dismissController:self];
+}
 
 @end

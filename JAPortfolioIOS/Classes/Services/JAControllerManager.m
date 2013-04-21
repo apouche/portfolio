@@ -41,6 +41,16 @@
 	[next release];
 }
 
+- (void)dismissController:(UIViewController *)controller
+{	
+	[UIView animateWithDuration:0.3f animations:^{
+		controller.view.frame = CGRectMake(JAViewW(controller.view), 20, JAViewW(controller.view), JAViewH(controller.view));
+	}];
+	
+	[controller dismissViewControllerAnimated:YES completion:nil];
+
+
+}
 
 
 @end

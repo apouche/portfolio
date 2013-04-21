@@ -25,4 +25,8 @@
 - (FlickrPhoto*)objectAtIndexPath:(NSIndexPath*)path;
 - (void)scrollToCurrentPhoto:(BOOL)animated;
 
+#pragma mark Events
+
+- (void)onTouchBackButton:(id)sender;
+
 @end
