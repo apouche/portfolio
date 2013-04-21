@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0407E7B0172474D10077A700 /* AFHTTPRequestOperationLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0407E7AC172474D10077A700 /* AFHTTPRequestOperationLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		041C476A17203E6C0055B7B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C476917203E6C0055B7B3 /* UIKit.framework */; };
 		041C476C17203E6C0055B7B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C476B17203E6C0055B7B3 /* Foundation.framework */; };
 		041C476E17203E6C0055B7B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C476D17203E6C0055B7B3 /* CoreGraphics.framework */; };
@@ -560,6 +561,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0407E7AB172474D10077A700 /* AFHTTPRequestOperationLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationLogger.h; sourceTree = "<group>"; };
+		0407E7AC172474D10077A700 /* AFHTTPRequestOperationLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationLogger.m; sourceTree = "<group>"; };
 		041C476617203E6C0055B7B3 /* JAPortfolioIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JAPortfolioIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		041C476917203E6C0055B7B3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		041C476B17203E6C0055B7B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1157,6 +1160,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0407E7AA172474D10077A700 /* AFHTTPRequestOperationLogger */ = {
+			isa = PBXGroup;
+			children = (
+				0407E7AB172474D10077A700 /* AFHTTPRequestOperationLogger.h */,
+				0407E7AC172474D10077A700 /* AFHTTPRequestOperationLogger.m */,
+			);
+			path = AFHTTPRequestOperationLogger;
+			sourceTree = "<group>";
+		};
 		041C475D17203E6C0055B7B3 = {
 			isa = PBXGroup;
 			children = (
@@ -1294,6 +1306,7 @@
 		041C47B2172051370055B7B3 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				0407E7AA172474D10077A700 /* AFHTTPRequestOperationLogger */,
 				04FB6BAD1720781D0022C2D9 /* AFNetworking */,
 			);
 			path = Libs;
@@ -2509,6 +2522,7 @@
 				04A459B8172434BA00FC1E6D /* JAControllerManager.m in Sources */,
 				04A459BB1724372900FC1E6D /* FlickrViewerViewController.m in Sources */,
 				04A459CE17245B3800FC1E6D /* FlickrViewerCell.m in Sources */,
+				0407E7B0172474D10077A700 /* AFHTTPRequestOperationLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

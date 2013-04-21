@@ -16,5 +16,7 @@
 
     #import "JALog.h"
 	#import "Constants.h"
+	#import "AFNetworking.h"
+
 
 #endif

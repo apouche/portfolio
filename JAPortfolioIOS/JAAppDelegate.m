@@ -12,6 +12,8 @@
 
 #import "JAUtils.h"
 
+#import "AFHTTPRequestOperationLogger.h"
+
 @implementation JAAppDelegate
 
 - (void)dealloc
@@ -30,11 +32,14 @@
 	JALogI(@"Application Caches path: %@", [JAUtils applicationCachesPath]);
     
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+	
     // Override point for customization after application launch.
     self.viewController = [[[JAViewController alloc] initWithNibName:@"JAViewController" bundle:nil] autorelease];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
+	[[AFHTTPRequestOperationLogger sharedLogger] startLogging];
+	
     return YES;
 }
 

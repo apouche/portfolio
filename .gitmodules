@@ -1,3 +1,6 @@
 [submodule "JAPortfolioIOS/Libs/AFNetworking"]
 	path = JAPortfolioIOS/Libs/AFNetworking
 	url = https://github.com/AFNetworking/AFNetworking
+[submodule "JAPortfolioIOS/Libs/AFHTTPRequestOperationLogger"]
+	path = JAPortfolioIOS/Libs/AFHTTPRequestOperationLogger
+	url = https://github.com/AFNetworking/AFHTTPRequestOperationLogger
