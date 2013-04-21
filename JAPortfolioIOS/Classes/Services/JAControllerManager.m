@@ -25,13 +25,14 @@
 - (void)pushFlickrViewerFrom:(UIViewController*)controller  photo:(FlickrPhoto *)photo fromList:(NSArray *)photos
 {
 	UIViewController* next = [[FlickrViewerViewController alloc] initWithNibName:nil bundle:nil];
-	next.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+	next.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 	
-	[controller presentViewController:next animated:NO completion:nil];
+	[controller presentViewController:next animated:YES completion:nil];
 	
-//	[UIView animateWithDuration:0.3f animations:^{
-//		controller.view.frame = CGRectMake(0, 0, , <#CGFloat height#>)
-//	}];
+	next.view.frame = CGRectMake(JAViewW(controller.view), 0, JAViewW(next.view), JAViewH(next.view));
+	[UIView animateWithDuration:0.3f animations:^{
+		next.view.frame = CGRectMake(0, 0, JAViewW(next.view), JAViewH(next.view));
+	}];
 	
 	[next release];
 }
