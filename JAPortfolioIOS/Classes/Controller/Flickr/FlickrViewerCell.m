@@ -13,8 +13,9 @@
 
 // Categories
 #import "UIImageView+AFNetworking.h"
+#import "UIScrollView+JAPortfolio.h"
 
-#define kViewerParallaxOffsetMaxX	50.f
+#define kViewerParallaxOffsetMaxX	100.f
 #define kViewerParallaxOffsetMaxY	50.f
 #define kViewerParallaxOffsetSmooth 0.3f
 
@@ -65,14 +66,14 @@
 	[_imageView setImageWithURL:photo.urlLarge placeholderImage:[UIImage imageNamed:@"flickr_logo"]];
 }
 
-- (void)handleParallaxWithScrollOffset:(CGPoint)offset
+- (void)handleParallaxWithScrollOffset:(CGPoint)offset direction:(UIScrollViewDirection)direction
 {
 	CGFloat absoluteX = JAViewW(self)*self.tag;
 	
-	CGFloat shift = (ABS(offset.x - absoluteX) > kViewerParallaxOffsetMaxX ?
-					 kViewerParallaxOffsetMaxX :
-					 ABS(offset.x - absoluteX));
-	CGFloat sign  = absoluteX < offset.x ? -1.f : 1.f;
+	CGFloat shift = //(ABS(offset.x - absoluteX) > kViewerParallaxOffsetMaxX ?
+					// kViewerParallaxOffsetMaxX :
+					 ABS(offset.x - absoluteX);
+	CGFloat sign  = direction == UIScrollViewDirectionRight < offset.x ? -1.f : 1.f;
 	
 	_imageView.frame = CGRectMake(shift*sign*kViewerParallaxOffsetSmooth, JAViewY(_imageView), JAViewW(_imageView), JAViewH(_imageView));
 					 

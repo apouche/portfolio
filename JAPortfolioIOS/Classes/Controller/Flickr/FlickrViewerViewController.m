@@ -12,6 +12,9 @@
 // Managers
 #import "JAControllerManager.h"
 
+// Categories
+#import "UIScrollView+JAPortfolio.h"
+
 #define kFlickrViewerCellIdentifer @"kFlickrViewerCellIdentifer"
 
 @interface FlickrViewerViewController ()
@@ -148,10 +151,20 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+	// determine scroll direction
+	UIScrollViewDirection direction = UIScrollViewDirectionUnknown;
+	
+	if (scrollView.contentOffset.x < _currentOffset.x)
+		direction = UIScrollViewDirectionLeft;
+	else if (scrollView.contentOffset.x > _currentOffset.x)
+		direction = UIScrollViewDirectionRight;
+	
+	// retrieve visible cells
 	NSArray* visibleCells = [self.collectionView visibleCells];
 	
+	// perform parallax effect on them
 	for (FlickrViewerCell* cell in visibleCells)
-		[cell handleParallaxWithScrollOffset:scrollView.contentOffset];
+		[cell handleParallaxWithScrollOffset:scrollView.contentOffset direction:direction];
 }
 
 
