@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040434DC17271F0800C43882 /* UIScrollView+JAPortfolio.m in Sources */ = {isa = PBXBuildFile; fileRef = 040434DB17271F0800C43882 /* UIScrollView+JAPortfolio.m */; };
 		0407E7B0172474D10077A700 /* AFHTTPRequestOperationLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0407E7AC172474D10077A700 /* AFHTTPRequestOperationLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		041C476A17203E6C0055B7B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C476917203E6C0055B7B3 /* UIKit.framework */; };
 		041C476C17203E6C0055B7B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C476B17203E6C0055B7B3 /* Foundation.framework */; };
@@ -561,6 +562,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040434DA17271F0800C43882 /* UIScrollView+JAPortfolio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+JAPortfolio.h"; sourceTree = "<group>"; };
+		040434DB17271F0800C43882 /* UIScrollView+JAPortfolio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+JAPortfolio.m"; sourceTree = "<group>"; };
 		0407E7AB172474D10077A700 /* AFHTTPRequestOperationLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationLogger.h; sourceTree = "<group>"; };
 		0407E7AC172474D10077A700 /* AFHTTPRequestOperationLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationLogger.m; sourceTree = "<group>"; };
 		041C476617203E6C0055B7B3 /* JAPortfolioIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JAPortfolioIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1160,6 +1163,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040434D817271EF300C43882 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				040434DA17271F0800C43882 /* UIScrollView+JAPortfolio.h */,
+				040434DB17271F0800C43882 /* UIScrollView+JAPortfolio.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		0407E7AA172474D10077A700 /* AFHTTPRequestOperationLogger */ = {
 			isa = PBXGroup;
 			children = (
@@ -1263,6 +1275,7 @@
 		041C479F172040800055B7B3 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				040434D817271EF300C43882 /* Categories */,
 				04FB6C2117207E6F0022C2D9 /* BusinessObjects */,
 				041C47A8172041740055B7B3 /* Utils */,
 				041C47A0172040800055B7B3 /* Controller */,
@@ -2523,6 +2536,7 @@
 				04A459BB1724372900FC1E6D /* FlickrViewerViewController.m in Sources */,
 				04A459CE17245B3800FC1E6D /* FlickrViewerCell.m in Sources */,
 				0407E7B0172474D10077A700 /* AFHTTPRequestOperationLogger.m in Sources */,
+				040434DC17271F0800C43882 /* UIScrollView+JAPortfolio.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
