@@ -15,9 +15,9 @@
 #import "UIImageView+AFNetworking.h"
 #import "UIScrollView+JAPortfolio.h"
 
-#define kViewerParallaxOffsetMaxX	100.f
+#define kViewerParallaxOffsetMaxX	50
 #define kViewerParallaxOffsetMaxY	50.f
-#define kViewerParallaxOffsetSmooth 0.3f
+#define kViewerParallaxOffsetSmooth 0.5f
 
 @implementation FlickrViewerCell
 @synthesize imageView = _imageView;
@@ -70,12 +70,11 @@
 {
 	CGFloat absoluteX = JAViewW(self)*self.tag;
 	
-	CGFloat shift = //(ABS(offset.x - absoluteX) > kViewerParallaxOffsetMaxX ?
-					// kViewerParallaxOffsetMaxX :
-					 ABS(offset.x - absoluteX);
-	CGFloat sign  = direction == UIScrollViewDirectionRight < offset.x ? -1.f : 1.f;
+	CGFloat shift = ABS(offset.x - absoluteX)*kViewerParallaxOffsetSmooth;
 	
-	_imageView.frame = CGRectMake(shift*sign*kViewerParallaxOffsetSmooth, JAViewY(_imageView), JAViewW(_imageView), JAViewH(_imageView));
+	CGFloat sign  = direction == UIScrollViewDirectionRight < offset.x || absoluteX > offset.x ? -1.f : 1.f;
+	
+	_imageView.frame = CGRectMake(shift*sign, JAViewY(_imageView), JAViewW(_imageView), JAViewH(_imageView));
 					 
 	
 }
