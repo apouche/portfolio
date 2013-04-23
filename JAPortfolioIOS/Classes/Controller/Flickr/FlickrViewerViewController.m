@@ -12,6 +12,9 @@
 // Managers
 #import "JAControllerManager.h"
 
+// Categories
+#import "UIScrollView+JAPortfolio.h"
+
 #define kFlickrViewerCellIdentifer @"kFlickrViewerCellIdentifer"
 
 @interface FlickrViewerViewController ()
@@ -73,6 +76,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+	_loading = YES;
+	
 	self.view.backgroundColor = [UIColor redColor];
 	
 	// reload data (based on _photos)
@@ -108,6 +113,7 @@
 		CGRect rect = CGRectMake(idx*JAViewW(self.collectionView), 0, JAViewW(self.collectionView), JAViewH(self.collectionView));
 		[self.collectionView scrollRectToVisible:rect animated:NO];
 	}
+	_loading = NO;
 }
 
 #pragma mark -
@@ -127,7 +133,7 @@
 		cell = [[[FlickrViewerCell alloc] initWithFrame:self.view.bounds] autorelease];
 	}
 	
-	[cell loadWithObject:[self objectAtIndexPath:indexPath]];
+	[cell loadWithObject:[self objectAtIndexPath:indexPath] fromList:_photos];
 	
 	return cell;
 }
@@ -143,6 +149,31 @@
 {
 	return _photos.count;
 }
+
+#pragma mark UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+	// determine scroll direction
+	UIScrollViewDirection direction = UIScrollViewDirectionUnknown;
+	
+	if (scrollView.contentOffset.x < _currentOffset.x)
+		direction = UIScrollViewDirectionLeft;
+	else if (scrollView.contentOffset.x > _currentOffset.x)
+		direction = UIScrollViewDirectionRight;
+	
+	// retrieve visible cells
+	NSArray* visibleCells = [self.collectionView visibleCells];
+	
+	if (_loading)
+		return;
+	
+	// perform parallax effect on them
+	for (FlickrViewerCell* cell in visibleCells)
+		[cell handleParallaxWithScrollOffset:scrollView.contentOffset direction:direction];
+}
+
+
 
 #pragma mark -
 #pragma mark Events

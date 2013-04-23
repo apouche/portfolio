@@ -15,6 +15,10 @@
 	UICollectionViewDataSource,
 	UICollectionViewDelegateFlowLayout
 >
+{
+	BOOL	_loading;
+	CGPoint _currentOffset;
+}
 
 
 @property (nonatomic, retain)	NSArray*		photos;

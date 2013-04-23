@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UIScrollView+JAPortfolio.h"
+
 @interface FlickrViewerCell : UICollectionViewCell
 
 @property (nonatomic, readonly) UIImageView* imageView;
 
-- (void)loadWithObject:(id)object;
+- (void)loadWithObject:(id)object fromList:(NSArray*)photos;
+- (void)handleParallaxWithScrollOffset:(CGPoint)offset direction:(UIScrollViewDirection)direction;
 
 @end
