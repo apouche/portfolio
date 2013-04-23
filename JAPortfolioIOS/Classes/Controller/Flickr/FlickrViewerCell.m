@@ -14,6 +14,9 @@
 // Categories
 #import "UIImageView+AFNetworking.h"
 
+#define kViewerParallaxOffsetMaxX 30.f
+#define kViewerParallaxOffsetMaxY 30.f
+
 @implementation FlickrViewerCell
 @synthesize imageView = _imageView;
 
@@ -23,12 +26,29 @@
     if (self) {
         // Initialization code
 		
-		_imageView = [[UIImageView alloc] initWithFrame:self.bounds];
+		// make image slightly bigger for the parralax effect
+		CGRect imgFrame = CGRectInset(self.bounds, -kViewerParallaxOffsetMaxX, 0);
+		
+		// make black background frame
+		CGRect blkFrame = CGRectInset(self.bounds, 3, 0);
+		
+		// build imageview
+		_imageView = [[UIImageView alloc] initWithFrame:imgFrame];
 		_imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
 		_imageView.contentMode		= UIViewContentModeScaleAspectFill;
 		_imageView.clipsToBounds	= YES;
+		_imageView.layer.borderWidth= 5.f;
+		_imageView.layer.borderColor= [UIColor blackColor].CGColor;
 		
-		[self addSubview:_imageView];
+		// image holder
+		UIView* imgHolder = [[UIView alloc] initWithFrame:blkFrame];
+		imgHolder.clipsToBounds		= YES;
+		imgHolder.backgroundColor	= [UIColor blackColor];
+		
+		[imgHolder addSubview:_imageView];
+		
+		[self addSubview:imgHolder];
+		[self setClipsToBounds:YES];
 		
 		// safe release as it's retained in the view hierarchy
 		[_imageView release];
