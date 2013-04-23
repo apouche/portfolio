@@ -76,6 +76,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+	_loading = YES;
+	
 	self.view.backgroundColor = [UIColor redColor];
 	
 	// reload data (based on _photos)
@@ -111,6 +113,7 @@
 		CGRect rect = CGRectMake(idx*JAViewW(self.collectionView), 0, JAViewW(self.collectionView), JAViewH(self.collectionView));
 		[self.collectionView scrollRectToVisible:rect animated:NO];
 	}
+	_loading = NO;
 }
 
 #pragma mark -
@@ -161,6 +164,9 @@
 	
 	// retrieve visible cells
 	NSArray* visibleCells = [self.collectionView visibleCells];
+	
+	if (_loading)
+		return;
 	
 	// perform parallax effect on them
 	for (FlickrViewerCell* cell in visibleCells)

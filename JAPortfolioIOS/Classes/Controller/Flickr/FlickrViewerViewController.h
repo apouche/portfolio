@@ -16,6 +16,7 @@
 	UICollectionViewDelegateFlowLayout
 >
 {
+	BOOL	_loading;
 	CGPoint _currentOffset;
 }
 
