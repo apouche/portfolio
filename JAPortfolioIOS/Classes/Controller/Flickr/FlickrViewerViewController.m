@@ -127,7 +127,7 @@
 		cell = [[[FlickrViewerCell alloc] initWithFrame:self.view.bounds] autorelease];
 	}
 	
-	[cell loadWithObject:[self objectAtIndexPath:indexPath]];
+	[cell loadWithObject:[self objectAtIndexPath:indexPath] fromList:_photos];
 	
 	return cell;
 }
@@ -143,6 +143,18 @@
 {
 	return _photos.count;
 }
+
+#pragma mark UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+	NSArray* visibleCells = [self.collectionView visibleCells];
+	
+	for (FlickrViewerCell* cell in visibleCells)
+		[cell handleParallaxWithScrollOffset:scrollView.contentOffset];
+}
+
+
 
 #pragma mark -
 #pragma mark Events

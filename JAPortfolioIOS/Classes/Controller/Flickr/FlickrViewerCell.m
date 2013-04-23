@@ -14,8 +14,9 @@
 // Categories
 #import "UIImageView+AFNetworking.h"
 
-#define kViewerParallaxOffsetMaxX 30.f
-#define kViewerParallaxOffsetMaxY 30.f
+#define kViewerParallaxOffsetMaxX	50.f
+#define kViewerParallaxOffsetMaxY	50.f
+#define kViewerParallaxOffsetSmooth 0.3f
 
 @implementation FlickrViewerCell
 @synthesize imageView = _imageView;
@@ -57,10 +58,27 @@
     return self;
 }
 
-- (void)loadWithObject:(FlickrPhoto*)photo
+- (void)loadWithObject:(FlickrPhoto*)photo fromList:(NSArray *)photos
 {
+	self.tag = [photos indexOfObject:photo];
+	
 	[_imageView setImageWithURL:photo.urlLarge placeholderImage:[UIImage imageNamed:@"flickr_logo"]];
 }
+
+- (void)handleParallaxWithScrollOffset:(CGPoint)offset
+{
+	CGFloat absoluteX = JAViewW(self)*self.tag;
+	
+	CGFloat shift = (ABS(offset.x - absoluteX) > kViewerParallaxOffsetMaxX ?
+					 kViewerParallaxOffsetMaxX :
+					 ABS(offset.x - absoluteX));
+	CGFloat sign  = absoluteX < offset.x ? -1.f : 1.f;
+	
+	_imageView.frame = CGRectMake(shift*sign*kViewerParallaxOffsetSmooth, JAViewY(_imageView), JAViewW(_imageView), JAViewH(_imageView));
+					 
+	
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

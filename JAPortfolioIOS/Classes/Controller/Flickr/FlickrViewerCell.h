@@ -12,6 +12,7 @@
 
 @property (nonatomic, readonly) UIImageView* imageView;
 
-- (void)loadWithObject:(id)object;
+- (void)loadWithObject:(id)object fromList:(NSArray*)photos;
+- (void)handleParallaxWithScrollOffset:(CGPoint)offset;
 
 @end
