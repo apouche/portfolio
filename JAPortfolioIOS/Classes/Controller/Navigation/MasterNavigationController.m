@@ -41,9 +41,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-	
-	// inform the controller manager about the master creation
-	[[JAControllerManager sharedManager] setMasterController:self];
 }
 
 - (void)viewDidAppear:(BOOL)animated

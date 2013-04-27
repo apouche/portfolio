@@ -10,6 +10,8 @@
 #import "JAViewController.h"
 #import "MasterNavigationController.h"
 
+// Managers
+#import "JAControllerManager.h"
 
 @interface JAViewController ()
 
@@ -25,16 +27,18 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+	// Create the master controller
 	MasterNavigationController* navController = [[MasterNavigationController alloc] initWithNibName:nil bundle:nil];
-	
-//    FlickrViewController* nextController = [[FlickrViewController alloc] initWithNibName:nil bundle:nil];
 	
     navController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     navController.modalPresentationStyle = UIModalPresentationFullScreen;
 	
     [self presentViewController:navController animated:YES completion:nil];
-    
 	
+	// inform the controller manager about the master creation
+	[[JAControllerManager sharedManager] setMasterController:navController];
+	
+	// safe release as the master will be retained by the iOS view hierarchy
 	[navController release];
 }
 
