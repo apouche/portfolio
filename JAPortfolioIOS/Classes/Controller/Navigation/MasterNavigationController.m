@@ -79,7 +79,7 @@
 		 
 	// step 3:
 	//   position controller for animation and animate transition
-	controller.view.frame = CGRectOffset(controller.view.frame, JAViewW(self.view), 0);
+	controller.view.frame = CGRectMake(JAViewW(self.view), 0, JAViewW(self.view), JAViewH(self.view));
 	[UIView animateWithDuration:0.3f
 						  delay:0
 						options:0
