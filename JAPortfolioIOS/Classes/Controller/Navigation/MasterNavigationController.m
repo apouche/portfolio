@@ -76,7 +76,7 @@
 						  delay:0
 						options:0
 					 animations:^{
-						 controller.view.frame = CGRectMake(0, 0, JAViewW(self.view), JAViewH(self.view));
+						 controller.view.frame = CGRectMake(0, JAViewY(controller.view), JAViewW(self.view), JAViewH(self.view));
 					 }
 					 completion:^(BOOL f) { if (f && completion) completion(); }];
 	
