@@ -15,3 +15,5 @@
 
 #define JAScreenSize	 [[UIScreen mainScreen] bounds].size
 #define JARealScreenSize CGSizeMake(JAScreenSize.width, JAScreenSize.height-20.f)
+
+#define JAReleaseAndNil(o) { [(o) release]; o = nil; }
