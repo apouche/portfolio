@@ -29,7 +29,6 @@
     if (self) {
         // Custom initialization
 		_stackControllers = [[NSMutableArray alloc] init];
-		
     }
     return self;
 }

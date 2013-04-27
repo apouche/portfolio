@@ -8,6 +8,9 @@
 
 #import "MenuViewController.h"
 
+// Views
+#import "MenuHeaderView.h"
+
 #define kMenuViewControllerCellIdentifier @"kMenuViewControllerCellIdentifier"
 
 @implementation MenuViewController
@@ -18,6 +21,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+		_sections = [[NSArray alloc] initWithObjects:@"UIKit", nil];
     }
     return self;
 }
@@ -46,6 +50,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc
+{
+	JAReleaseAndNil(_sections);
+	
+	[super dealloc];
+}
 #pragma mark -
 #pragma mark - UITableView
 #pragma mark - 
@@ -55,7 +65,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return _sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -80,16 +90,23 @@
 
 #pragma mark Delegate
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+	MenuHeaderView* headerview = [[[MenuHeaderView alloc] initWithFrame:CGRectMake(0, 0, JAViewW(self.view), 31)] autorelease];
+	
+	headerview.titleLabel.text = _sections[section];
+	
+	return headerview;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+	return 31;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+   
 }
 
 @end

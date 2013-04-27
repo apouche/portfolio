@@ -29,6 +29,7 @@
 		041C4820172055420055B7B3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C481F172055420055B7B3 /* SystemConfiguration.framework */; };
 		041C4822172055500055B7B3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C4821172055500055B7B3 /* MobileCoreServices.framework */; };
 		041C4827172141F40055B7B3 /* flickr_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 041C4826172141F40055B7B3 /* flickr_logo@2x.png */; };
+		043D53A1172C218B005EA0AA /* MenuHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 043D53A0172C218A005EA0AA /* MenuHeaderView.m */; };
 		04A459B1172425DF00FC1E6D /* FlickrPhotoPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A459AA172425DF00FC1E6D /* FlickrPhotoPreview.m */; };
 		04A459B2172425DF00FC1E6D /* FlickrPreviewViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A459AC172425DF00FC1E6D /* FlickrPreviewViewCell.m */; };
 		04A459B3172425DF00FC1E6D /* FlickrViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A459AE172425DF00FC1E6D /* FlickrViewCell.m */; };
@@ -600,6 +601,8 @@
 		041C481F172055420055B7B3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		041C4821172055500055B7B3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		041C4826172141F40055B7B3 /* flickr_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flickr_logo@2x.png"; sourceTree = "<group>"; };
+		043D539F172C218A005EA0AA /* MenuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuHeaderView.h; sourceTree = "<group>"; };
+		043D53A0172C218A005EA0AA /* MenuHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuHeaderView.m; sourceTree = "<group>"; };
 		04A459A9172425DF00FC1E6D /* FlickrPhotoPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoPreview.h; sourceTree = "<group>"; };
 		04A459AA172425DF00FC1E6D /* FlickrPhotoPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoPreview.m; sourceTree = "<group>"; };
 		04A459AB172425DF00FC1E6D /* FlickrPreviewViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPreviewViewCell.h; sourceTree = "<group>"; };
@@ -1204,6 +1207,8 @@
 			children = (
 				040434F1172C132F00C43882 /* MenuViewController.h */,
 				040434F2172C132F00C43882 /* MenuViewController.m */,
+				043D539F172C218A005EA0AA /* MenuHeaderView.h */,
+				043D53A0172C218A005EA0AA /* MenuHeaderView.m */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -2579,6 +2584,7 @@
 				040434E5172BFA6400C43882 /* JAAbstractViewController.m in Sources */,
 				040434E9172BFACD00C43882 /* MasterNavigationController.m in Sources */,
 				040434F3172C132F00C43882 /* MenuViewController.m in Sources */,
+				043D53A1172C218B005EA0AA /* MenuHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
