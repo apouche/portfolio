@@ -20,4 +20,6 @@ typedef void (^NavigationBlock)(void);
 - (void)pushController:(UIViewController *)controller from:(UIViewController*)fromController completion:(NavigationBlock)completion;
 - (void)popCurrentControllerWithCompletion:(NavigationBlock)completion;
 
+- (UIViewController*)currentController;
+
 @end

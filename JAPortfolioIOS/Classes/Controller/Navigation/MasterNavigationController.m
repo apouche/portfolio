@@ -59,7 +59,34 @@
 
 - (void)pushController:(UIViewController *)controller from:(UIViewController*)fromController completion:(NavigationBlock)completion
 {
-	// position controller for animation and animate transition
+	// step 1:
+	//   determine the controllers to remove
+	//   that is the controllers beyond the push hierarchy (or every one of the if nil)
+	BOOL shouldRemove = NO;
+	NSMutableArray* controllersToRemove = [NSMutableArray arrayWithCapacity:_stackControllers.count];
+	for (UIViewController* c in _stackControllers)
+	{
+		if (shouldRemove || fromController == nil)
+			[controllersToRemove addObject:c];
+		
+		if (c == fromController)
+			shouldRemove = YES;
+
+	}
+	
+	// step 2:
+	//   remove controllers added in step 1
+	for (UIViewController* c in controllersToRemove)
+	{
+		[UIView animateWithDuration:0.3f animations:^{
+			c.view.frame = CGRectOffset(c.view.frame, JAViewW(self.view), 0);
+		}];
+		
+		[_stackControllers removeObject:c];
+	}
+		 
+	// step 3:
+	//   position controller for animation and animate transition
 	controller.view.frame = CGRectOffset(controller.view.frame, JAViewW(self.view), 0);
 	[UIView animateWithDuration:0.3f
 						  delay:0
@@ -69,10 +96,10 @@
 					 }
 					 completion:^(BOOL f) { if (f && completion) completion(); }];
 	
-	// add controller to stack
+	//   add controller to stack
 	[_stackControllers addObject:controller];
 	
-	// add controller view
+	//   add controller view
 	[self.view addSubview:controller.view];
 }
 
@@ -81,4 +108,8 @@
 	
 }
 
+- (UIViewController *)currentController
+{
+	return [_stackControllers lastObject];
+}
 @end
