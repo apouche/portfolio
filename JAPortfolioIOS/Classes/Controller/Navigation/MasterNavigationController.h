@@ -10,9 +10,12 @@
 
 typedef void (^NavigationBlock)(void);
 
+@class MenuViewController;
+
 @interface MasterNavigationController : UIViewController
 {
-	NSMutableArray* _stackControllers;
+	NSMutableArray*		_stackControllers;
+	MenuViewController* _menuController;
 }
 
 #pragma mark StackControllers

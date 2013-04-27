@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 Johan Attali. All rights reserved.
 //
 
+// Controllers
 #import "MasterNavigationController.h"
+#import "MenuViewController.h"
 
 // Managers
 #import "JAControllerManager.h"
@@ -27,6 +29,7 @@
     if (self) {
         // Custom initialization
 		_stackControllers = [[NSMutableArray alloc] init];
+		
     }
     return self;
 }
@@ -34,18 +37,24 @@
 - (void)dealloc
 {
 	JAReleaseAndNil(_stackControllers);
-	
+	JAReleaseAndNil(_menuController);
+
 	[super dealloc];
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
 	// Do any additional setup after loading the view.
+	_menuController = [[MenuViewController alloc] initWithNibName:nil bundle:nil];
+	_menuController.view.frame = CGRectMake(0, 0, JAViewW(self.view), JAViewH(self.view));
+	
+	[self.view addSubview:_menuController.view];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-	[[JAControllerManager sharedManager] pushFlickInterestingControllerFrom:nil];
+//	[[JAControllerManager sharedManager] pushFlickInterestingControllerFrom:nil];
 }
 - (void)didReceiveMemoryWarning
 {
