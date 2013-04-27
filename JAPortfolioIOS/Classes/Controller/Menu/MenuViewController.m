@@ -8,6 +8,9 @@
 
 #import "MenuViewController.h"
 
+// Managers
+#import "JAControllerManager.h"
+
 // Views
 #import "MenuHeaderView.h"
 #import "MenuViewCell.h"
@@ -129,7 +132,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
+	JASample* sample = [self objectAtIndexPath:indexPath];
+	
+	[[JAControllerManager sharedManager] performSelector:sample.selector withObject:nil];
 }
 
 @end
