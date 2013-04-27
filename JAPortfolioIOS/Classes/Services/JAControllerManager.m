@@ -42,25 +42,15 @@
 	next.photos			= photos;
 	next.currentPhoto	= photo;
 	
-	[controller presentViewController:next animated:YES completion:nil];
+	[_masterController pushController:next completion:nil];
 	
-	next.view.frame = CGRectMake(JAViewW(controller.view), 20, JAViewW(next.view), JAViewH(next.view));
-	[UIView animateWithDuration:0.3f animations:^{
-		next.view.frame = CGRectMake(0, 20, JAViewW(next.view), JAViewH(next.view));
-	}];
-	
+	// retained by the master controller hierarchy
 	[next release];
 }
 
 - (void)dismissController:(UIViewController *)controller
 {	
-	[UIView animateWithDuration:0.3f animations:^{
-		controller.view.frame = CGRectMake(JAViewW(controller.view), 20, JAViewW(controller.view), JAViewH(controller.view));
-	}];
-	
-	[controller dismissViewControllerAnimated:YES completion:nil];
-
-
+	[_masterController popCurrentControllerWithCompletion:nil];
 }
 
 

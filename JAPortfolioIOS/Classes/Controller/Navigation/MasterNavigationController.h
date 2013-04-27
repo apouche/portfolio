@@ -17,8 +17,10 @@ typedef void (^NavigationBlock)(void);
 
 #pragma mark StackControllers
 
+- (void)pushController:(UIViewController *)controller completion:(NavigationBlock)completion;
 - (void)pushController:(UIViewController *)controller from:(UIViewController*)fromController completion:(NavigationBlock)completion;
 - (void)popCurrentControllerWithCompletion:(NavigationBlock)completion;
+- (void)popFromController:(UIViewController*)controller;
 
 - (UIViewController*)currentController;
 

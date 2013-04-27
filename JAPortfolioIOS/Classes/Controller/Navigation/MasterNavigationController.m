@@ -57,33 +57,17 @@
 #pragma mark StackControllers
 #pragma mark -
 
+- (void)pushController:(UIViewController *)controller completion:(NavigationBlock)completion
+{
+	// by default push from current controller
+	[self pushController:controller from:self.currentController completion:completion];
+}
+
 - (void)pushController:(UIViewController *)controller from:(UIViewController*)fromController completion:(NavigationBlock)completion
 {
 	// step 1:
-	//   determine the controllers to remove
-	//   that is the controllers beyond the push hierarchy (or every one of the if nil)
-	BOOL shouldRemove = NO;
-	NSMutableArray* controllersToRemove = [NSMutableArray arrayWithCapacity:_stackControllers.count];
-	for (UIViewController* c in _stackControllers)
-	{
-		if (shouldRemove || fromController == nil)
-			[controllersToRemove addObject:c];
-		
-		if (c == fromController)
-			shouldRemove = YES;
-
-	}
-	
-	// step 2:
-	//   remove controllers added in step 1
-	for (UIViewController* c in controllersToRemove)
-	{
-		[UIView animateWithDuration:0.3f animations:^{
-			c.view.frame = CGRectOffset(c.view.frame, JAViewW(self.view), 0);
-		}];
-		
-		[_stackControllers removeObject:c];
-	}
+	//   pop all controllers from the fromController
+	[self popFromController:fromController];
 		 
 	// step 3:
 	//   position controller for animation and animate transition
@@ -105,7 +89,40 @@
 
 - (void)popCurrentControllerWithCompletion:(NavigationBlock)completion
 {
+	// index of current controller
+	NSInteger idx = [_stackControllers indexOfObject:self.currentController];
 	
+	// push from previous controller if exists
+	[self popFromController:idx > 0 ? _stackControllers[idx-1] : nil];
+}
+
+- (void)popFromController:(UIViewController *)controller
+{
+	// step 1:
+	//   determine the controllers to remove
+	//   that is the controllers beyond the push hierarchy (or every one of the if nil)
+	BOOL shouldRemove = NO;
+	NSMutableArray* controllersToRemove = [NSMutableArray arrayWithCapacity:_stackControllers.count];
+	for (UIViewController* c in _stackControllers)
+	{
+		if (shouldRemove || controller == nil)
+			[controllersToRemove addObject:c];
+		
+		if (c == controller)
+			shouldRemove = YES;
+		
+	}
+	
+	// step 2:
+	//   remove controllers added in step 1
+	for (UIViewController* c in controllersToRemove)
+	{
+		[UIView animateWithDuration:0.3f animations:^{
+			c.view.frame = CGRectOffset(c.view.frame, JAViewW(self.view), 0);
+		}];
+		
+		[_stackControllers removeObject:c];
+	}
 }
 
 - (UIViewController *)currentController
