@@ -9,9 +9,12 @@
 #import "JAControllerManager.h"
 
 // Controllers
+#import "MasterNavigationController.h"
 #import "FlickrViewerViewController.h"
+#import "FlickrViewController.h"
 
 @implementation JAControllerManager
+@synthesize masterController = _masterController;
 
 + (JAControllerManager *)sharedManager
 {
@@ -22,6 +25,14 @@
     return singleton;
 }
 
+- (void)pushFlickInterestingControllerFrom:(UIViewController *)controller
+{
+	FlickrViewController* c = [[FlickrViewController alloc] initWithNibName:nil bundle:nil];
+	
+	[_masterController pushController:c from:nil completion:nil];
+	
+	[c release];
+}
 - (void)pushFlickrViewerFrom:(UIViewController*)controller  photo:(FlickrPhoto *)photo fromList:(NSArray *)photos
 {
 	UICollectionViewLayout* layout = [FlickrViewerViewController layout];

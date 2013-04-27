@@ -8,7 +8,8 @@
 
 // Controllers
 #import "JAViewController.h"
-#import "FlickrViewController.h"
+#import "MasterNavigationController.h"
+
 
 @interface JAViewController ()
 
@@ -24,11 +25,17 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    FlickrViewController* nextController = [[FlickrViewController alloc] initWithNibName:nil bundle:nil];
-    nextController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    nextController.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:nextController animated:YES completion:nil];
-    [nextController release];
+	MasterNavigationController* navController = [[MasterNavigationController alloc] initWithNibName:nil bundle:nil];
+	
+//    FlickrViewController* nextController = [[FlickrViewController alloc] initWithNibName:nil bundle:nil];
+	
+    navController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    navController.modalPresentationStyle = UIModalPresentationFullScreen;
+	
+    [self presentViewController:navController animated:YES completion:nil];
+    
+	
+	[navController release];
 }
 
 - (void)didReceiveMemoryWarning

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		040434DC17271F0800C43882 /* UIScrollView+JAPortfolio.m in Sources */ = {isa = PBXBuildFile; fileRef = 040434DB17271F0800C43882 /* UIScrollView+JAPortfolio.m */; };
+		040434E5172BFA6400C43882 /* JAAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040434E4172BFA6400C43882 /* JAAbstractViewController.m */; };
+		040434E9172BFACD00C43882 /* MasterNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040434E8172BFACD00C43882 /* MasterNavigationController.m */; };
 		0407E7B0172474D10077A700 /* AFHTTPRequestOperationLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0407E7AC172474D10077A700 /* AFHTTPRequestOperationLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		041C476A17203E6C0055B7B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C476917203E6C0055B7B3 /* UIKit.framework */; };
 		041C476C17203E6C0055B7B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C476B17203E6C0055B7B3 /* Foundation.framework */; };
@@ -564,6 +566,10 @@
 /* Begin PBXFileReference section */
 		040434DA17271F0800C43882 /* UIScrollView+JAPortfolio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+JAPortfolio.h"; sourceTree = "<group>"; };
 		040434DB17271F0800C43882 /* UIScrollView+JAPortfolio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+JAPortfolio.m"; sourceTree = "<group>"; };
+		040434E3172BFA6400C43882 /* JAAbstractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAAbstractViewController.h; sourceTree = "<group>"; };
+		040434E4172BFA6400C43882 /* JAAbstractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAAbstractViewController.m; sourceTree = "<group>"; };
+		040434E7172BFACD00C43882 /* MasterNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterNavigationController.h; sourceTree = "<group>"; };
+		040434E8172BFACD00C43882 /* MasterNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterNavigationController.m; sourceTree = "<group>"; };
 		0407E7AB172474D10077A700 /* AFHTTPRequestOperationLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationLogger.h; sourceTree = "<group>"; };
 		0407E7AC172474D10077A700 /* AFHTTPRequestOperationLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationLogger.m; sourceTree = "<group>"; };
 		041C476617203E6C0055B7B3 /* JAPortfolioIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JAPortfolioIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1172,6 +1178,24 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		040434E1172BFA4C00C43882 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				040434E3172BFA6400C43882 /* JAAbstractViewController.h */,
+				040434E4172BFA6400C43882 /* JAAbstractViewController.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		040434E6172BFAB900C43882 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				040434E7172BFACD00C43882 /* MasterNavigationController.h */,
+				040434E8172BFACD00C43882 /* MasterNavigationController.m */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		0407E7AA172474D10077A700 /* AFHTTPRequestOperationLogger */ = {
 			isa = PBXGroup;
 			children = (
@@ -1287,6 +1311,8 @@
 		041C47A0172040800055B7B3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				040434E6172BFAB900C43882 /* Navigation */,
+				040434E1172BFA4C00C43882 /* Common */,
 				04A459A8172425DF00FC1E6D /* Flickr */,
 				041C47A3172040800055B7B3 /* JAViewController.h */,
 				041C47A4172040800055B7B3 /* JAViewController.m */,
@@ -2537,6 +2563,8 @@
 				04A459CE17245B3800FC1E6D /* FlickrViewerCell.m in Sources */,
 				0407E7B0172474D10077A700 /* AFHTTPRequestOperationLogger.m in Sources */,
 				040434DC17271F0800C43882 /* UIScrollView+JAPortfolio.m in Sources */,
+				040434E5172BFA6400C43882 /* JAAbstractViewController.m in Sources */,
+				040434E9172BFACD00C43882 /* MasterNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
