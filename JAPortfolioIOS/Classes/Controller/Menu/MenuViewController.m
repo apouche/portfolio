@@ -12,17 +12,25 @@
 #import "MenuHeaderView.h"
 #import "MenuViewCell.h"
 
+// Business Objects
+#import "JASample.h"
+
 #define kMenuViewControllerCellIdentifier @"kMenuViewControllerCellIdentifier"
 
 @implementation MenuViewController
 @synthesize tableView = _tableView;
+
+#pragma mark UIViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-		_sections = [[NSArray alloc] initWithObjects:@"UIKit", nil];
+		_sections = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:[NSArray arrayWithObjects:
+																					 [JASample sampleCollectionView], nil],
+														   nil]
+												  forKeys:[NSArray arrayWithObjects:@"UIKit", nil]];
     }
     return self;
 }
@@ -31,11 +39,6 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	_tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
 	_tableView.delegate			= self;
 	_tableView.dataSource		= self;
@@ -58,6 +61,17 @@
 	
 	[super dealloc];
 }
+
+#pragma mark MenuViewController
+
+- (id)objectAtIndexPath:(NSIndexPath *)path
+{
+	NSString* key		= path.section < _sections.allKeys.count ? [_sections allKeys][path.section] : nil;
+	NSArray* objects	= _sections[key];
+	
+	return path.row < objects.count ? objects[path.row] : nil;
+}
+
 #pragma mark -
 #pragma mark - UITableView
 #pragma mark - 
@@ -67,13 +81,16 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return _sections.count;
+    return _sections.allKeys.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 3;
+	NSString* key		= [_sections allKeys][section];
+	NSArray* objects	= _sections[key];
+	
+    return objects.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -84,7 +101,11 @@
 	if (cell == nil)
 		cell = [[[MenuViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kMenuViewControllerCellIdentifier] autorelease];
 	
-	cell.titleLabel.text = [NSString stringWithFormat:@"%@", indexPath];
+	// retreive corresponding business object
+	JASample* sample = [self objectAtIndexPath:indexPath];
+	
+	// build cell
+	cell.titleLabel.text = sample.title;
     
     return cell;
 }
@@ -96,7 +117,7 @@
 {
 	MenuHeaderView* headerview = [[[MenuHeaderView alloc] initWithFrame:CGRectMake(0, 0, JAViewW(self.view), 31)] autorelease];
 	
-	headerview.titleLabel.text = _sections[section];
+	headerview.titleLabel.text = [_sections allKeys][section];
 	
 	return headerview;
 }

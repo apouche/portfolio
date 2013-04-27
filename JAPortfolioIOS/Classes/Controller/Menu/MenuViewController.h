@@ -10,9 +10,11 @@
 
 @interface MenuViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 {
-	NSArray*			_sections;
+	NSDictionary*			_sections;
 }
 
 @property (nonatomic, readonly) UITableView* tableView;
+
+- (id)objectAtIndexPath:(NSIndexPath*)path;
 
 @end
