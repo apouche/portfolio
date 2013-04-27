@@ -10,4 +10,6 @@
 
 @interface JAAbstractViewController : UIViewController
 
+@property (nonatomic, assign, getter = isNavBarNeeded) BOOL navBarNeeded;
+
 @end

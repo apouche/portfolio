@@ -13,6 +13,9 @@
 @end
 
 @implementation JAAbstractViewController
+@synthesize navBarNeeded = _navBarNeeded;
+
+#pragma mark UIViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +36,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark JAAbstractViewController
+
+- (BOOL)isNavBarNeeded
+{
+	return YES;
 }
 
 @end

@@ -56,6 +56,7 @@
     _tableview.allowsSelection  = NO;
     _tableview.separatorStyle   = UITableViewCellSeparatorStyleNone;
     _tableview.indicatorStyle   = UIScrollViewIndicatorStyleWhite;
+	_tableview.autoresizingMask	= UIViewAutoresizingFlexibleHeight;
     
     [self.view addSubview:_tableview];
     [self.view setBackgroundColor:JARGB(30, 30, 30)];

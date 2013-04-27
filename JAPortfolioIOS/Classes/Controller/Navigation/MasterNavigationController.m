@@ -9,6 +9,9 @@
 // Controllers
 #import "MasterNavigationController.h"
 #import "MenuViewController.h"
+#import "JAAbstractViewController.h"
+// Views
+#import "MasterNavigationBar.h"
 
 // Managers
 #import "JAControllerManager.h"
@@ -37,7 +40,8 @@
 {
 	JAReleaseAndNil(_stackControllers);
 	JAReleaseAndNil(_menuController);
-
+	JAReleaseAndNil(_navBar);
+	
 	[super dealloc];
 }
 - (void)viewDidLoad
@@ -48,7 +52,11 @@
 	_menuController = [[MenuViewController alloc] initWithNibName:nil bundle:nil];
 	_menuController.view.frame = CGRectMake(0, 0, JAViewW(self.view), JAViewH(self.view));
 	
+	_navBar = [[MasterNavigationBar alloc] initWithFrame:CGRectMake(0, -40, JAViewW(self.view), 40)];
+	_navBar.alpha = 0.f;
+	
 	[self.view addSubview:_menuController.view];
+	[self.view addSubview:_navBar];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -71,20 +79,40 @@
 	[self pushController:controller from:self.currentController completion:completion];
 }
 
-- (void)pushController:(UIViewController *)controller from:(UIViewController*)fromController completion:(NavigationBlock)completion
+- (void)pushController:(JAAbstractViewController*)controller from:(UIViewController*)fromController completion:(NavigationBlock)completion
 {
+	CGFloat y = 0;
 	// step 1:
 	//   pop all controllers from the fromController
 	[self popFromController:fromController];
-		 
+	
+	// step 2:
+	//   show navbar if needed
+	if ([controller respondsToSelector:@selector(isNavBarNeeded)] && controller.isNavBarNeeded)
+	{
+		[UIView animateWithDuration:0.3f animations:^{
+			_navBar.frame = CGRectMake(0, 0, JAViewW(_navBar), JAViewH(_navBar));
+			_navBar.alpha = 1.f;
+		}];
+		y = JAViewH(_navBar);	
+	}
+	else
+	{
+		[UIView animateWithDuration:0.3f animations:^{
+			_navBar.frame = CGRectMake(0, -JAViewH(_navBar), JAViewW(_navBar), JAViewH(_navBar));
+			_navBar.alpha = 0.f;
+		}];
+		y = 0;
+	}
+	
 	// step 3:
 	//   position controller for animation and animate transition
-	controller.view.frame = CGRectMake(JAViewW(self.view), 0, JAViewW(self.view), JAViewH(self.view));
+	controller.view.frame = CGRectMake(JAViewW(self.view), y, JAViewW(self.view), JAViewH(self.view)-y);
 	[UIView animateWithDuration:0.3f
 						  delay:0
 						options:0
 					 animations:^{
-						 controller.view.frame = CGRectMake(0, JAViewY(controller.view), JAViewW(self.view), JAViewH(self.view));
+						 controller.view.frame = CGRectMake(0, JAViewY(controller.view), JAViewW(controller.view), JAViewH(controller.view));
 					 }
 					 completion:^(BOOL f) { if (f && completion) completion(); }];
 	
@@ -93,6 +121,8 @@
 	
 	//   add controller view
 	[self.view addSubview:controller.view];
+	
+	[self.view insertSubview:_navBar aboveSubview:controller.view];
 }
 
 - (void)popCurrentControllerWithCompletion:(NavigationBlock)completion
@@ -130,6 +160,24 @@
 		}];
 		
 		[_stackControllers removeObject:c];
+	}
+	
+	// step 3:
+	//   show back navbar view if needed
+	JAAbstractViewController* lastController = [_stackControllers lastObject];
+	if ([lastController respondsToSelector:@selector(isNavBarNeeded)] && lastController.isNavBarNeeded)
+	{
+		[UIView animateWithDuration:0.3f animations:^{
+			_navBar.frame = CGRectMake(0, 0, JAViewW(_navBar), JAViewH(_navBar));
+			_navBar.alpha = 1.f;
+		}];
+	}
+	else
+	{
+		[UIView animateWithDuration:0.3f animations:^{
+			_navBar.frame = CGRectMake(0, -JAViewH(_navBar), JAViewW(_navBar), JAViewH(_navBar));
+			_navBar.alpha = 0.f;
+		}];
 	}
 }
 
