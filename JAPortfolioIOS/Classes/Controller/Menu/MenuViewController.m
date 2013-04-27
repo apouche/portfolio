@@ -10,6 +10,7 @@
 
 // Views
 #import "MenuHeaderView.h"
+#import "MenuViewCell.h"
 
 #define kMenuViewControllerCellIdentifier @"kMenuViewControllerCellIdentifier"
 
@@ -38,7 +39,8 @@
 	_tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
 	_tableView.delegate			= self;
 	_tableView.dataSource		= self;
-	
+	_tableView.backgroundColor	= kMenuViewCellBGColor;
+	_tableView.separatorStyle	= UITableViewCellSeparatorStyleNone;
 	[self.view addSubview:_tableView];
 	
 	[_tableView release];
@@ -76,13 +78,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kMenuViewControllerCellIdentifier];
+    MenuViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kMenuViewControllerCellIdentifier];
     
     // Configure the cell...
 	if (cell == nil)
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kMenuViewControllerCellIdentifier] autorelease];
+		cell = [[[MenuViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kMenuViewControllerCellIdentifier] autorelease];
 	
-	cell.textLabel.text = [NSString stringWithFormat:@"%@", indexPath];
+	cell.titleLabel.text = [NSString stringWithFormat:@"%@", indexPath];
     
     return cell;
 }
