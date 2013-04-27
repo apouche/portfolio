@@ -15,7 +15,21 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-		self.backgroundColor = [UIColor redColor];
+		CAGradientLayer* gradient = [CAGradientLayer layer];
+		gradient.frame = self.bounds;
+		gradient.colors = [NSArray arrayWithObjects:(id)JARGB(30, 30, 30).CGColor,
+													(id)JARGB(10, 10, 10).CGColor,
+													 nil];
+		
+		
+		UIView* vTop	= [[UIView alloc] initWithFrame:CGRectMake(0, 0, JAViewW(self), 1)];
+		vTop.backgroundColor	= JARGB(50,49,50);
+
+		[self.layer addSublayer:gradient];
+		[self addSubview:vTop];
+		
+		[vTop release];
+		
     }
     return self;
 }
