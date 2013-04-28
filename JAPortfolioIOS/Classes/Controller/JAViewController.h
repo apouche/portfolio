@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface JAViewController : UIViewController
+{
+	UIView* _splashView;
+}
+
+- (void)loadInformation;
+- (void)loadMainController;
 
 @end

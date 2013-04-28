@@ -11,6 +11,7 @@
 #import "JAAbstractViewController.h"
 
 @implementation MasterNavigationBar
+@synthesize menuButton = _menuButton;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -26,11 +27,19 @@
 		
 		UIView* vTop	= [[UIView alloc] initWithFrame:CGRectMake(0, 0, JAViewW(self), 1)];
 		vTop.backgroundColor	= JARGB(50,49,50);
+		
+		UIImage* imgButton = [UIImage imageNamed:@"w_align_just"];
+		_menuButton			= [UIButton buttonWithType:UIButtonTypeCustom];
+		_menuButton.frame	= (CGRect){CGPointMake(10, 8), imgButton.size};
+		[_menuButton setImage:imgButton forState:UIControlStateNormal];
 
 		[self.layer addSublayer:gradient];
 		[self addSubview:vTop];
+		[self addSubview:_menuButton];
 		
+		// safe release
 		[vTop release];
+//		[_menuButton release];
 		
     }
     return self;

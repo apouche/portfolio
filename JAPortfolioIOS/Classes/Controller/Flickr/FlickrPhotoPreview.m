@@ -22,7 +22,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _imageView = [[[UIImageView alloc] initWithFrame:self.bounds] autorelease];
+        _imageView					= [[UIImageView alloc] initWithFrame:self.bounds];
         _imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
         _imageView.contentMode      = UIViewContentModeScaleAspectFit;
         _imageView.image            = [UIImage imageNamed:@"flickr_logo"];

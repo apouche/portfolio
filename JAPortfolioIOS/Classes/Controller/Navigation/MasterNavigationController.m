@@ -58,6 +58,7 @@
 	
 	_navBar = [[MasterNavigationBar alloc] initWithFrame:CGRectMake(0, 0, JAViewW(self.view), 40)];
 	_navBar.alpha = 1.f;
+	[_navBar.menuButton addTarget:self action:@selector(onTouchMenuButton:) forControlEvents:UIControlEventTouchUpInside];
 	
 	[_panningView addSubview:_navBar];
 	
@@ -73,6 +74,25 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -
+#pragma mark Pan Related
+#pragma mark -
+
+- (void)shiftPanViewToOffset:(CGFloat)offset
+{
+	[_panningView.layer removeAllAnimations];
+	[UIView animateWithDuration:0.35f
+						  delay:0.f
+						options:UIViewAnimationOptionBeginFromCurrentState
+					 animations:^{
+						 _panningView.frame = CGRectMake(offset,
+														 JAViewY(_panningView),
+														 JAViewW(_panningView),
+														 JAViewH(_panningView));
+					 }
+					 completion:nil];
 }
 
 #pragma mark -
@@ -174,4 +194,15 @@
 {
 	return [_stackControllers lastObject];
 }
+
+
+#pragma mark -
+#pragma mark Events
+#pragma mark -
+
+- (void)onTouchMenuButton:(id)sender
+{
+	[self shiftPanViewToOffset:JAViewX(_panningView) > 0 ? 0 : 250.f];
+}
+
 @end

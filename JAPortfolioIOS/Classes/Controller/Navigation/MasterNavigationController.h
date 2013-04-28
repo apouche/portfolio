@@ -32,4 +32,12 @@ typedef void (^NavigationBlock)(void);
 
 - (UIViewController*)currentController;
 
+#pragma mark Pan Related
+
+- (void)shiftPanViewToOffset:(CGFloat)offset;
+
+#pragma mark Events
+
+- (void)onTouchMenuButton:(id)sender;
+
 @end
