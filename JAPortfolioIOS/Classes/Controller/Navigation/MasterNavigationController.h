@@ -19,6 +19,8 @@ typedef void (^NavigationBlock)(void);
 	MenuViewController* _menuController;
 	
 	MasterNavigationBar* _navBar;
+	
+	UIView* _panningView;
 }
 
 #pragma mark StackControllers

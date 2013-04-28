@@ -41,6 +41,7 @@
 	JAReleaseAndNil(_stackControllers);
 	JAReleaseAndNil(_menuController);
 	JAReleaseAndNil(_navBar);
+	JAReleaseAndNil(_panningView);
 	
 	[super dealloc];
 }
@@ -52,11 +53,16 @@
 	_menuController = [[MenuViewController alloc] initWithNibName:nil bundle:nil];
 	_menuController.view.frame = CGRectMake(0, 0, JAViewW(self.view), JAViewH(self.view));
 	
-	_navBar = [[MasterNavigationBar alloc] initWithFrame:CGRectMake(0, -40, JAViewW(self.view), 40)];
-	_navBar.alpha = 0.f;
+	_panningView = [[UIView alloc] initWithFrame:CGRectMake(JAViewW(self.view), 0, JAViewW(self.view), JAViewH(self.view))];
+	_panningView.backgroundColor = [UIColor clearColor];
+	
+	_navBar = [[MasterNavigationBar alloc] initWithFrame:CGRectMake(0, 0, JAViewW(self.view), 40)];
+	_navBar.alpha = 1.f;
+	
+	[_panningView addSubview:_navBar];
 	
 	[self.view addSubview:_menuController.view];
-	[self.view addSubview:_navBar];
+	[self.view addSubview:_panningView];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -81,38 +87,28 @@
 
 - (void)pushController:(JAAbstractViewController*)controller from:(UIViewController*)fromController completion:(NavigationBlock)completion
 {
-	CGFloat y = 0;
 	// step 1:
 	//   pop all controllers from the fromController
 	[self popFromController:fromController];
 	
-	// step 2:
-	//   show navbar if needed
-	if ([controller respondsToSelector:@selector(isNavBarNeeded)] && controller.isNavBarNeeded)
-	{
-		[UIView animateWithDuration:0.3f animations:^{
-			_navBar.frame = CGRectMake(0, 0, JAViewW(_navBar), JAViewH(_navBar));
-			_navBar.alpha = 1.f;
-		}];
-		y = JAViewH(_navBar);	
-	}
-	else
-	{
-		[UIView animateWithDuration:0.3f animations:^{
-			_navBar.frame = CGRectMake(0, -JAViewH(_navBar), JAViewW(_navBar), JAViewH(_navBar));
-			_navBar.alpha = 0.f;
-		}];
-		y = 0;
-	}
+	// step 2: TODO
+	//   push navbar items
 	
 	// step 3:
 	//   position controller for animation and animate transition
-	controller.view.frame = CGRectMake(JAViewW(self.view), y, JAViewW(self.view), JAViewH(self.view)-y);
+	CGFloat x = JAViewX(_panningView) > 0.f ? 0 : JAViewW(self.view);
+	CGFloat y = JAViewH(_navBar);
+	
+	controller.view.frame = CGRectMake(x, y, JAViewW(self.view), JAViewH(self.view)-y);
+	
 	[UIView animateWithDuration:0.3f
 						  delay:0
 						options:0
 					 animations:^{
-						 controller.view.frame = CGRectMake(0, JAViewY(controller.view), JAViewW(controller.view), JAViewH(controller.view));
+						 if (JAViewX(_panningView) > 0.f)
+							 _panningView.frame = CGRectOffset(_panningView.frame, -JAViewX(_panningView), 0);
+						 else
+							 controller.view.frame = CGRectMake(0, JAViewY(controller.view), JAViewW(controller.view), JAViewH(controller.view));
 					 }
 					 completion:^(BOOL f) { if (f && completion) completion(); }];
 	
@@ -120,9 +116,7 @@
 	[_stackControllers addObject:controller];
 	
 	//   add controller view
-	[self.view addSubview:controller.view];
-	
-	[self.view insertSubview:_navBar aboveSubview:controller.view];
+	[_panningView addSubview:controller.view];
 }
 
 - (void)popCurrentControllerWithCompletion:(NavigationBlock)completion
@@ -155,30 +149,20 @@
 	//   remove controllers added in step 1
 	for (UIViewController* c in controllersToRemove)
 	{
-		[UIView animateWithDuration:0.3f animations:^{
-			c.view.frame = CGRectOffset(c.view.frame, JAViewW(self.view), 0);
-		}];
+		[UIView animateWithDuration:0.3f
+						 animations:^{
+							 c.view.frame = CGRectOffset(c.view.frame, JAViewW(self.view), 0);
+						 }
+						 completion:^(BOOL finished) {
+							 if (finished)
+								 [c.view removeFromSuperview];
+						 }];
 		
 		[_stackControllers removeObject:c];
 	}
 	
-	// step 3:
-	//   show back navbar view if needed
-	JAAbstractViewController* lastController = [_stackControllers lastObject];
-	if ([lastController respondsToSelector:@selector(isNavBarNeeded)] && lastController.isNavBarNeeded)
-	{
-		[UIView animateWithDuration:0.3f animations:^{
-			_navBar.frame = CGRectMake(0, 0, JAViewW(_navBar), JAViewH(_navBar));
-			_navBar.alpha = 1.f;
-		}];
-	}
-	else
-	{
-		[UIView animateWithDuration:0.3f animations:^{
-			_navBar.frame = CGRectMake(0, -JAViewH(_navBar), JAViewW(_navBar), JAViewH(_navBar));
-			_navBar.alpha = 0.f;
-		}];
-	}
+	// step 3: TODO
+	//   pop navbar items
 }
 
 - (UIViewController *)currentController
