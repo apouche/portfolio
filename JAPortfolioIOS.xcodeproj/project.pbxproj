@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		040434DC17271F0800C43882 /* UIScrollView+JAPortfolio.m in Sources */ = {isa = PBXBuildFile; fileRef = 040434DB17271F0800C43882 /* UIScrollView+JAPortfolio.m */; };
+		040434E5172BFA6400C43882 /* JAAbstractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040434E4172BFA6400C43882 /* JAAbstractViewController.m */; };
+		040434E9172BFACD00C43882 /* MasterNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040434E8172BFACD00C43882 /* MasterNavigationController.m */; };
+		040434F3172C132F00C43882 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040434F2172C132F00C43882 /* MenuViewController.m */; };
 		0407E7B0172474D10077A700 /* AFHTTPRequestOperationLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0407E7AC172474D10077A700 /* AFHTTPRequestOperationLogger.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		041C476A17203E6C0055B7B3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C476917203E6C0055B7B3 /* UIKit.framework */; };
 		041C476C17203E6C0055B7B3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C476B17203E6C0055B7B3 /* Foundation.framework */; };
@@ -26,6 +29,11 @@
 		041C4820172055420055B7B3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C481F172055420055B7B3 /* SystemConfiguration.framework */; };
 		041C4822172055500055B7B3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041C4821172055500055B7B3 /* MobileCoreServices.framework */; };
 		041C4827172141F40055B7B3 /* flickr_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 041C4826172141F40055B7B3 /* flickr_logo@2x.png */; };
+		04338B66172C60DF0075A2C6 /* JASample.m in Sources */ = {isa = PBXBuildFile; fileRef = 04338B65172C60DF0075A2C6 /* JASample.m */; };
+		04338B69172C6EC00075A2C6 /* MasterNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04338B68172C6EC00075A2C6 /* MasterNavigationBar.m */; };
+		04338B6B172C75020075A2C6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04338B6A172C75020075A2C6 /* QuartzCore.framework */; };
+		043D53A1172C218B005EA0AA /* MenuHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 043D53A0172C218A005EA0AA /* MenuHeaderView.m */; };
+		043D53A4172C2467005EA0AA /* MenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 043D53A3172C2467005EA0AA /* MenuViewCell.m */; };
 		04A459B1172425DF00FC1E6D /* FlickrPhotoPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A459AA172425DF00FC1E6D /* FlickrPhotoPreview.m */; };
 		04A459B2172425DF00FC1E6D /* FlickrPreviewViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A459AC172425DF00FC1E6D /* FlickrPreviewViewCell.m */; };
 		04A459B3172425DF00FC1E6D /* FlickrViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A459AE172425DF00FC1E6D /* FlickrViewCell.m */; };
@@ -564,6 +572,12 @@
 /* Begin PBXFileReference section */
 		040434DA17271F0800C43882 /* UIScrollView+JAPortfolio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+JAPortfolio.h"; sourceTree = "<group>"; };
 		040434DB17271F0800C43882 /* UIScrollView+JAPortfolio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+JAPortfolio.m"; sourceTree = "<group>"; };
+		040434E3172BFA6400C43882 /* JAAbstractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAAbstractViewController.h; sourceTree = "<group>"; };
+		040434E4172BFA6400C43882 /* JAAbstractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAAbstractViewController.m; sourceTree = "<group>"; };
+		040434E7172BFACD00C43882 /* MasterNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterNavigationController.h; sourceTree = "<group>"; };
+		040434E8172BFACD00C43882 /* MasterNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterNavigationController.m; sourceTree = "<group>"; };
+		040434F1172C132F00C43882 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		040434F2172C132F00C43882 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		0407E7AB172474D10077A700 /* AFHTTPRequestOperationLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationLogger.h; sourceTree = "<group>"; };
 		0407E7AC172474D10077A700 /* AFHTTPRequestOperationLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationLogger.m; sourceTree = "<group>"; };
 		041C476617203E6C0055B7B3 /* JAPortfolioIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JAPortfolioIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -591,6 +605,15 @@
 		041C481F172055420055B7B3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		041C4821172055500055B7B3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		041C4826172141F40055B7B3 /* flickr_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flickr_logo@2x.png"; sourceTree = "<group>"; };
+		04338B64172C60DF0075A2C6 /* JASample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JASample.h; sourceTree = "<group>"; };
+		04338B65172C60DF0075A2C6 /* JASample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JASample.m; sourceTree = "<group>"; };
+		04338B67172C6EC00075A2C6 /* MasterNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterNavigationBar.h; sourceTree = "<group>"; };
+		04338B68172C6EC00075A2C6 /* MasterNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterNavigationBar.m; sourceTree = "<group>"; };
+		04338B6A172C75020075A2C6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		043D539F172C218A005EA0AA /* MenuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuHeaderView.h; sourceTree = "<group>"; };
+		043D53A0172C218A005EA0AA /* MenuHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuHeaderView.m; sourceTree = "<group>"; };
+		043D53A2172C2467005EA0AA /* MenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewCell.h; sourceTree = "<group>"; };
+		043D53A3172C2467005EA0AA /* MenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewCell.m; sourceTree = "<group>"; };
 		04A459A9172425DF00FC1E6D /* FlickrPhotoPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoPreview.h; sourceTree = "<group>"; };
 		04A459AA172425DF00FC1E6D /* FlickrPhotoPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoPreview.m; sourceTree = "<group>"; };
 		04A459AB172425DF00FC1E6D /* FlickrPreviewViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPreviewViewCell.h; sourceTree = "<group>"; };
@@ -1152,6 +1175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04338B6B172C75020075A2C6 /* QuartzCore.framework in Frameworks */,
 				041C4822172055500055B7B3 /* MobileCoreServices.framework in Frameworks */,
 				041C4820172055420055B7B3 /* SystemConfiguration.framework in Frameworks */,
 				041C476A17203E6C0055B7B3 /* UIKit.framework in Frameworks */,
@@ -1170,6 +1194,39 @@
 				040434DB17271F0800C43882 /* UIScrollView+JAPortfolio.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		040434E1172BFA4C00C43882 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				040434E3172BFA6400C43882 /* JAAbstractViewController.h */,
+				040434E4172BFA6400C43882 /* JAAbstractViewController.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		040434E6172BFAB900C43882 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				040434E7172BFACD00C43882 /* MasterNavigationController.h */,
+				040434E8172BFACD00C43882 /* MasterNavigationController.m */,
+				04338B67172C6EC00075A2C6 /* MasterNavigationBar.h */,
+				04338B68172C6EC00075A2C6 /* MasterNavigationBar.m */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		040434EF172C131E00C43882 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				040434F1172C132F00C43882 /* MenuViewController.h */,
+				040434F2172C132F00C43882 /* MenuViewController.m */,
+				043D539F172C218A005EA0AA /* MenuHeaderView.h */,
+				043D53A0172C218A005EA0AA /* MenuHeaderView.m */,
+				043D53A2172C2467005EA0AA /* MenuViewCell.h */,
+				043D53A3172C2467005EA0AA /* MenuViewCell.m */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		0407E7AA172474D10077A700 /* AFHTTPRequestOperationLogger */ = {
@@ -1201,6 +1258,7 @@
 		041C476817203E6C0055B7B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04338B6A172C75020075A2C6 /* QuartzCore.framework */,
 				041C4821172055500055B7B3 /* MobileCoreServices.framework */,
 				041C481F172055420055B7B3 /* SystemConfiguration.framework */,
 				041C476917203E6C0055B7B3 /* UIKit.framework */,
@@ -1287,6 +1345,9 @@
 		041C47A0172040800055B7B3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				040434EF172C131E00C43882 /* Menu */,
+				040434E6172BFAB900C43882 /* Navigation */,
+				040434E1172BFA4C00C43882 /* Common */,
 				04A459A8172425DF00FC1E6D /* Flickr */,
 				041C47A3172040800055B7B3 /* JAViewController.h */,
 				041C47A4172040800055B7B3 /* JAViewController.m */,
@@ -1924,6 +1985,8 @@
 				04FB6C2617207EA90022C2D9 /* FlickrPhoto.m */,
 				04FB6C2817207ECB0022C2D9 /* FlickrAbstractObject.h */,
 				04FB6C2917207ECB0022C2D9 /* FlickrAbstractObject.m */,
+				04338B64172C60DF0075A2C6 /* JASample.h */,
+				04338B65172C60DF0075A2C6 /* JASample.m */,
 			);
 			path = BusinessObjects;
 			sourceTree = "<group>";
@@ -2537,6 +2600,13 @@
 				04A459CE17245B3800FC1E6D /* FlickrViewerCell.m in Sources */,
 				0407E7B0172474D10077A700 /* AFHTTPRequestOperationLogger.m in Sources */,
 				040434DC17271F0800C43882 /* UIScrollView+JAPortfolio.m in Sources */,
+				040434E5172BFA6400C43882 /* JAAbstractViewController.m in Sources */,
+				040434E9172BFACD00C43882 /* MasterNavigationController.m in Sources */,
+				040434F3172C132F00C43882 /* MenuViewController.m in Sources */,
+				043D53A1172C218B005EA0AA /* MenuHeaderView.m in Sources */,
+				043D53A4172C2467005EA0AA /* MenuViewCell.m in Sources */,
+				04338B66172C60DF0075A2C6 /* JASample.m in Sources */,
+				04338B69172C6EC00075A2C6 /* MasterNavigationBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

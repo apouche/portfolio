@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "JAAbstractViewController.h"
+
 typedef enum e_flickr_section
 {
     kFlickrSectionPhotos = 0,
@@ -16,7 +18,7 @@ typedef enum e_flickr_section
     // keep at the end
     kFlickrSectionCount
 }FlickrSection;
-@interface FlickrViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface FlickrViewController : JAAbstractViewController <UITableViewDataSource, UITableViewDelegate>
 {
     NSInteger _currentPage;
 }

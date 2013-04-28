@@ -17,9 +17,9 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        self.backgroundColor = [UIColor blackColor];
-        self.backgroundView.backgroundColor = [UIColor blackColor];
-        self.contentView.backgroundColor= [UIColor blackColor];;
+        self.backgroundColor = [UIColor clearColor];
+        self.backgroundView.backgroundColor = [UIColor clearColor];
+        self.contentView.backgroundColor= [UIColor clearColor];;
     }
     return self;
 }

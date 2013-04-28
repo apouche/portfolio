@@ -10,11 +10,15 @@
 
 // Forward Declarations
 @class FlickrPhoto;
+@class MasterNavigationController;
 
 @interface JAControllerManager : NSObject
 
+@property (nonatomic, assign) MasterNavigationController* masterController;
+
 + (JAControllerManager *)sharedManager;
 
+- (void)pushFlickInterestingControllerFrom:(UIViewController*)controller;
 - (void)pushFlickrViewerFrom:(UIViewController*)controller photo:(FlickrPhoto *)photo fromList:(NSArray *)photos;
 - (void)dismissController:(UIViewController*)controller;
 

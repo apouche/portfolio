@@ -24,6 +24,7 @@
 @implementation FlickrViewerViewController
 @synthesize photos			= _photos;
 @synthesize currentPhoto	= _currentPhoto;
+@synthesize collectionView	= _collectionView;
 
 #pragma mark -
 #pragma mark UIViewController
@@ -39,13 +40,11 @@
 	return layout;
 }
 
-- (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-	self = [super initWithCollectionViewLayout:layout];
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 	if (self)
 	{
-		[self.collectionView registerClass:[FlickrViewerCell class] forCellWithReuseIdentifier:kFlickrViewerCellIdentifer];
-		self.collectionView.pagingEnabled = YES;
 	}
 	return self;
 }
@@ -65,11 +64,18 @@
 	// ----------------------
 	// Back Button
 	// ----------------------
+	_collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:[FlickrViewerViewController layout]];
+	[_collectionView registerClass:[FlickrViewerCell class] forCellWithReuseIdentifier:kFlickrViewerCellIdentifer];
+	[_collectionView setPagingEnabled:YES];
+	[_collectionView setDataSource:self];
+	[_collectionView setDelegate:self];
+
 	UIButton* backButton = [UIButton buttonWithType:UIButtonTypeCustom];
 	backButton.frame = CGRectMake(10, 10, 28, 28);
 	[backButton setImage:[UIImage imageNamed:@"gly_circle_west"] forState:UIControlStateNormal];
 	[backButton addTarget:self action:@selector(onTouchBackButton:) forControlEvents:UIControlEventTouchUpInside];
 	
+	[self.view addSubview:_collectionView];
 	[self.view addSubview:backButton];
 	
 }
@@ -91,6 +97,15 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -
+#pragma mark JAAbstractController
+#pragma mark -
+
+- (BOOL)isNavBarTransparent
+{
+	return YES;
 }
 
 #pragma mark -

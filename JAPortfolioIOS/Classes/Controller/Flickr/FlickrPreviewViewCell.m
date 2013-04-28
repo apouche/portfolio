@@ -17,13 +17,13 @@
     
     if (self)
     {
-        CGSize sPreview = CGSizeMake(90, 90);
+        CGSize sPreview = CGSizeMake(95, 95);
         NSMutableArray* previews = [NSMutableArray arrayWithCapacity:3];
         
         for (NSInteger i = 0; i < 3; ++i)
         {
             FlickrPhotoPreview* preview = [[FlickrPhotoPreview alloc] initWithFrame:CGRectZero];
-            preview.frame = CGRectMake(i*(sPreview.width+12)+12,
+            preview.frame = CGRectMake(i*(sPreview.width+8)+8,
                                        5,
                                        sPreview.width,
                                        sPreview.height);

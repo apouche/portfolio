@@ -15,3 +15,8 @@
 
 #define JAScreenSize	 [[UIScreen mainScreen] bounds].size
 #define JARealScreenSize CGSizeMake(JAScreenSize.width, JAScreenSize.height-20.f)
+
+#define JAReleaseAndNil(o) { [(o) release]; o = nil; }
+
+#define JARGB(r, g, b)		[UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+#define JARGBA(r, g, b, a)	[UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
