@@ -10,4 +10,6 @@
 
 @interface JAViewController : UIViewController
 
+- (void)loadMainController;
+
 @end
