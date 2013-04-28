@@ -27,16 +27,25 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	
-	UIImageView* splash			= [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Default"]];
-	splash.frame				= CGRectOffset(splash.frame, 0, -20);
-	splash.autoresizingMask		= UIViewAutoresizingFlexibleHeight;
+	_splashView = [[UIView alloc] initWithFrame:self.view.bounds];
 	
-	[self.view addSubview:splash];
+	UIImageView* splashImage		= [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Default"]];
+	splashImage.frame				= CGRectOffset(splashImage.frame, 0, -20);
+	splashImage.autoresizingMask	= UIViewAutoresizingFlexibleHeight;
+	
+	[_splashView addSubview:splashImage];
+	[self.view addSubview:_splashView];
+	
+	[splashImage release];
+	[_splashView release];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
 //	[self loadMainController];
+	
+	// show information after a short delay to stay on the splash screen a few more seconds
+	[self performSelector:@selector(loadInformation) withObject:nil afterDelay:1.f];
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,7 +62,10 @@
     navController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     navController.modalPresentationStyle = UIModalPresentationFullScreen;
 	
-    [self presentViewController:navController animated:YES completion:nil];
+    [self presentViewController:navController animated:YES completion:^{
+		// don't keep useless views into memory
+		[_splashView removeFromSuperview];
+	}];
 	
 	// inform the controller manager about the master creation
 	[[JAControllerManager sharedManager] setMasterController:navController];
@@ -62,4 +74,23 @@
 	[navController release];
 }
 
+- (void)loadInformation
+{
+	UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, JAViewH(self.view)-50, JAViewW(self.view)-30, 20)];
+	label.font				= [UIFont fontWithName:@"Open Sans" size:15];
+	label.text				= @"test iOS Portolio";
+	label.backgroundColor	= [UIColor clearColor];
+	label.textAlignment		= UITextAlignmentRight;
+	label.textColor			= JARGB(175, 175, 175);
+	label.alpha				= 0.f;
+	
+	[_splashView addSubview:label];
+	
+	[UIView animateWithDuration:3.f animations:^{ label.alpha = 1.f; }];
+	
+	[self performSelector:@selector(loadMainController) withObject:nil afterDelay:4.f];
+	
+	[label release];
+
+}
 @end
