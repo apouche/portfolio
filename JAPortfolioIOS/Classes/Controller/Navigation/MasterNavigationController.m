@@ -93,11 +93,12 @@
 	
 	// step 2: TODO
 	//   push navbar items
+	[_navBar pushNavigationItemsFromController:controller];
 	
 	// step 3:
 	//   position controller for animation and animate transition
 	CGFloat x = JAViewX(_panningView) > 0.f ? 0 : JAViewW(self.view);
-	CGFloat y = JAViewH(_navBar);
+	CGFloat y = controller.isNavBarTransparent ? 0 : JAViewH(_navBar);
 	
 	controller.view.frame = CGRectMake(x, y, JAViewW(self.view), JAViewH(self.view)-y);
 	
@@ -116,7 +117,7 @@
 	[_stackControllers addObject:controller];
 	
 	//   add controller view
-	[_panningView addSubview:controller.view];
+	[_panningView insertSubview:controller.view belowSubview:_navBar];
 }
 
 - (void)popCurrentControllerWithCompletion:(NavigationBlock)completion
@@ -128,8 +129,11 @@
 	[self popFromController:idx > 0 ? _stackControllers[idx-1] : nil];
 }
 
-- (void)popFromController:(UIViewController *)controller
+- (void)popFromController:(JAAbstractViewController *)controller
 {
+	NSInteger idx = [_stackControllers indexOfObject:controller];
+	
+	JAAbstractViewController* lastController = idx == 0 || idx == NSNotFound ? nil : _stackControllers[idx-1];
 	// step 1:
 	//   determine the controllers to remove
 	//   that is the controllers beyond the push hierarchy (or every one of the if nil)
@@ -161,8 +165,9 @@
 		[_stackControllers removeObject:c];
 	}
 	
-	// step 3: TODO
+	// step 3
 	//   pop navbar items
+	[_navBar popNavigationItemsFromController:controller toController:lastController];
 }
 
 - (UIViewController *)currentController

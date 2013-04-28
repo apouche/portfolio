@@ -10,6 +10,6 @@
 
 @interface JAAbstractViewController : UIViewController
 
-@property (nonatomic, assign, getter = isNavBarNeeded) BOOL navBarNeeded;
+@property (nonatomic, assign, getter = isNavBarTransparent) BOOL navBarTransparent;
 
 @end

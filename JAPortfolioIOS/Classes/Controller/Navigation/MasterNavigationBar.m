@@ -8,6 +8,8 @@
 
 #import "MasterNavigationBar.h"
 
+#import "JAAbstractViewController.h"
+
 @implementation MasterNavigationBar
 
 - (id)initWithFrame:(CGRect)frame
@@ -32,6 +34,21 @@
 		
     }
     return self;
+}
+
+- (void)pushNavigationItemsFromController:(JAAbstractViewController *)controller
+{
+	[UIView animateWithDuration:0.7 animations:^{
+		self.alpha = controller.isNavBarTransparent ? 0.0f : 1.f;
+	}];
+}
+
+- (void)popNavigationItemsFromController:(JAAbstractViewController *)fromController
+							toController:(JAAbstractViewController *)toController
+{
+	[UIView animateWithDuration:0.1 animations:^{
+		self.alpha = toController.isNavBarTransparent ? 0.25f : 1.f;
+	}];
 }
 
 /*

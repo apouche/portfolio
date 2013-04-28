@@ -13,7 +13,7 @@
 @end
 
 @implementation JAAbstractViewController
-@synthesize navBarNeeded = _navBarNeeded;
+@synthesize navBarTransparent = _navBarTransparent;
 
 #pragma mark UIViewController
 
@@ -40,9 +40,9 @@
 
 #pragma mark JAAbstractViewController
 
-- (BOOL)isNavBarNeeded
+- (BOOL)isNavBarTransparent
 {
-	return YES;
+	return NO;
 }
 
 @end

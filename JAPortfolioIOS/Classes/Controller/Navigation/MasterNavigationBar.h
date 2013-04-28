@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class JAAbstractViewController;
+
 @interface MasterNavigationBar : UINavigationBar
+
+- (void)pushNavigationItemsFromController:(JAAbstractViewController*)controller;
+- (void)popNavigationItemsFromController:(JAAbstractViewController*)fromController
+							toController:(JAAbstractViewController*)toController;
 
 @end

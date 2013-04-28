@@ -45,8 +45,6 @@
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 	if (self)
 	{
-//		[self.collectionView registerClass:[FlickrViewerCell class] forCellWithReuseIdentifier:kFlickrViewerCellIdentifer];
-//		self.collectionView.pagingEnabled = YES;
 	}
 	return self;
 }
@@ -99,6 +97,15 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -
+#pragma mark JAAbstractController
+#pragma mark -
+
+- (BOOL)isNavBarTransparent
+{
+	return YES;
 }
 
 #pragma mark -
