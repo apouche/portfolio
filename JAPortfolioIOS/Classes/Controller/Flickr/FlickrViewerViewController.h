@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "JAAbstractViewController.h"
 // Forward Declaration
 @class FlickrPhoto;
 
-@interface FlickrViewerViewController : UICollectionViewController <
+@interface FlickrViewerViewController : JAAbstractViewController <
 	UICollectionViewDataSource,
 	UICollectionViewDelegateFlowLayout
 >
@@ -21,8 +22,9 @@
 }
 
 
-@property (nonatomic, retain)	NSArray*		photos;
-@property (nonatomic, retain)	FlickrPhoto*	currentPhoto;
+@property (nonatomic, retain)	NSArray*			photos;
+@property (nonatomic, retain)	FlickrPhoto*		currentPhoto;
+@property (nonatomic, retain)	UICollectionView*	collectionView;
 
 + (UICollectionViewLayout*)layout;
 

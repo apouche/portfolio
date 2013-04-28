@@ -35,9 +35,9 @@
 }
 - (void)pushFlickrViewerFrom:(UIViewController*)controller  photo:(FlickrPhoto *)photo fromList:(NSArray *)photos
 {
-	UICollectionViewLayout* layout = [FlickrViewerViewController layout];
+//	UICollectionViewLayout* layout = [FlickrViewerViewController layout];
 	
-	FlickrViewerViewController* next = [[FlickrViewerViewController alloc] initWithCollectionViewLayout:layout];
+	FlickrViewerViewController* next = [[FlickrViewerViewController alloc] initWithNibName:nil bundle:nil];
 	next.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 	next.photos			= photos;
 	next.currentPhoto	= photo;
