@@ -13,6 +13,9 @@
 // Managers
 #import "JAControllerManager.h"
 
+// Categories
+#import "UIImage+JAPortfolio.h"
+
 @interface JAViewController ()
 
 @end
@@ -22,7 +25,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.    
+	// Do any additional setup after loading the view, typically from a nib.
+	
+	UIImageView* splash			= [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Default"]];
+	splash.frame				= CGRectOffset(splash.frame, 0, -20);
+	splash.autoresizingMask		= UIViewAutoresizingFlexibleHeight;
+	
+	[self.view addSubview:splash];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -33,7 +42,7 @@
     navController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     navController.modalPresentationStyle = UIModalPresentationFullScreen;
 	
-    [self presentViewController:navController animated:YES completion:nil];
+//    [self presentViewController:navController animated:YES completion:nil];
 	
 	// inform the controller manager about the master creation
 	[[JAControllerManager sharedManager] setMasterController:navController];

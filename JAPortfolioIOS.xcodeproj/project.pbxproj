@@ -32,6 +32,7 @@
 		04338B66172C60DF0075A2C6 /* JASample.m in Sources */ = {isa = PBXBuildFile; fileRef = 04338B65172C60DF0075A2C6 /* JASample.m */; };
 		04338B69172C6EC00075A2C6 /* MasterNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04338B68172C6EC00075A2C6 /* MasterNavigationBar.m */; };
 		04338B6B172C75020075A2C6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04338B6A172C75020075A2C6 /* QuartzCore.framework */; };
+		04338B71172DDC370075A2C6 /* UIImage+JAPortfolio.m in Sources */ = {isa = PBXBuildFile; fileRef = 04338B70172DDC370075A2C6 /* UIImage+JAPortfolio.m */; };
 		043D53A1172C218B005EA0AA /* MenuHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 043D53A0172C218A005EA0AA /* MenuHeaderView.m */; };
 		043D53A4172C2467005EA0AA /* MenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 043D53A3172C2467005EA0AA /* MenuViewCell.m */; };
 		04A459B1172425DF00FC1E6D /* FlickrPhotoPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A459AA172425DF00FC1E6D /* FlickrPhotoPreview.m */; };
@@ -610,6 +611,8 @@
 		04338B67172C6EC00075A2C6 /* MasterNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterNavigationBar.h; sourceTree = "<group>"; };
 		04338B68172C6EC00075A2C6 /* MasterNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterNavigationBar.m; sourceTree = "<group>"; };
 		04338B6A172C75020075A2C6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		04338B6F172DDC370075A2C6 /* UIImage+JAPortfolio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JAPortfolio.h"; sourceTree = "<group>"; };
+		04338B70172DDC370075A2C6 /* UIImage+JAPortfolio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JAPortfolio.m"; sourceTree = "<group>"; };
 		043D539F172C218A005EA0AA /* MenuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuHeaderView.h; sourceTree = "<group>"; };
 		043D53A0172C218A005EA0AA /* MenuHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuHeaderView.m; sourceTree = "<group>"; };
 		043D53A2172C2467005EA0AA /* MenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewCell.h; sourceTree = "<group>"; };
@@ -1192,6 +1195,8 @@
 			children = (
 				040434DA17271F0800C43882 /* UIScrollView+JAPortfolio.h */,
 				040434DB17271F0800C43882 /* UIScrollView+JAPortfolio.m */,
+				04338B6F172DDC370075A2C6 /* UIImage+JAPortfolio.h */,
+				04338B70172DDC370075A2C6 /* UIImage+JAPortfolio.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -2607,6 +2612,7 @@
 				043D53A4172C2467005EA0AA /* MenuViewCell.m in Sources */,
 				04338B66172C60DF0075A2C6 /* JASample.m in Sources */,
 				04338B69172C6EC00075A2C6 /* MasterNavigationBar.m in Sources */,
+				04338B71172DDC370075A2C6 /* UIImage+JAPortfolio.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
