@@ -16,7 +16,7 @@
 + (id)sampleCollectionView
 {
 	JASample* sample	= [[JASample alloc] init];
-	sample.title		= @"Collection Views";
+	sample.title		= @"Table & Collection Views";
 	sample.selector		= @selector(pushFlickInterestingControllerFrom:);
 	
 	return sample;

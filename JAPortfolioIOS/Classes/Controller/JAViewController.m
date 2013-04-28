@@ -76,7 +76,7 @@
 {
 	UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, JAViewH(self.view)-50, JAViewW(self.view)-30, 20)];
 	label.font				= [UIFont fontWithName:@"Open Sans" size:15];
-	label.text				= @"test iOS Portolio";
+	label.text				= @"by Johan Attali";
 	label.backgroundColor	= [UIColor clearColor];
 	label.textAlignment		= UITextAlignmentRight;
 	label.textColor			= JARGB(175, 175, 175);
