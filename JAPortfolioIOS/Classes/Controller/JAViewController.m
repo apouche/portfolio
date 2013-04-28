@@ -43,7 +43,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {	
 	// show information after a short delay to stay on the splash screen a few more seconds
-	[self performSelector:@selector(loadInformation) withObject:nil afterDelay:1.f];
+	[self performSelector:@selector(loadMainController) withObject:nil afterDelay:1.f];
 }
 
 - (void)didReceiveMemoryWarning

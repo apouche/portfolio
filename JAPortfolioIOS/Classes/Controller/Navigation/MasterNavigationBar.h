@@ -12,6 +12,8 @@
 
 @interface MasterNavigationBar : UINavigationBar
 
+@property (nonatomic, readonly) UIButton* menuButton;
+
 - (void)pushNavigationItemsFromController:(JAAbstractViewController*)controller;
 - (void)popNavigationItemsFromController:(JAAbstractViewController*)fromController
 							toController:(JAAbstractViewController*)toController;
