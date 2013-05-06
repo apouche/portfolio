@@ -15,32 +15,39 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
-	{
-        self.backgroundColor				= kMenuViewCellBGColor;
-        self.backgroundView.backgroundColor = kMenuViewCellBGColor;
-        self.contentView.backgroundColor	= kMenuViewCellBGColor;
+	{		
+		UIView* vTop		= [[UIView alloc] initWithFrame:CGRectMake(0, 0, JAViewW(self), 1)];
+		UIView* vBottom		= [[UIView alloc] initWithFrame:CGRectMake(0, JAViewH(self)-1, JAViewW(self), 1)];
+		UIView* vSelected	= [[UIView alloc] initWithFrame:CGRectMake(0, 0, JAViewW(self), 1)];
+		UIView* vTopSel		= [[UIView alloc] initWithFrame:self.bounds];
+
+		vTop.backgroundColor		= JARGB(50,49,50);
+		vBottom.backgroundColor		= JARGB(27,27,27);
+		vSelected.backgroundColor	= JARGB(27,27,27);
+		vTopSel.backgroundColor		= JARGB(0, 0, 0);
 		
-		UIView* vTop	= [[UIView alloc] initWithFrame:CGRectMake(0, 0, JAViewW(self), 1)];
-		UIView* vBottom = [[UIView alloc] initWithFrame:CGRectMake(0, JAViewH(self)-1, JAViewW(self), 1)];
-
-		vTop.backgroundColor	= JARGB(50,49,50);
-		vBottom.backgroundColor = JARGB(27,27,27);
-
 		_titleLabel = [[UILabel alloc] initWithFrame:CGRectOffset(self.bounds, 30, 0)];
 		_titleLabel.font			= [UIFont fontWithName:@"Verdana" size:15];
 		_titleLabel.backgroundColor = [UIColor clearColor];
 		_titleLabel.textColor		= JARGB(224,224,224);
 		
+		[vSelected addSubview:vTopSel];
+		
 		[self addSubview:vTop];
 		[self addSubview:vBottom];
 
 		[self addSubview:_titleLabel];
-
-		[self addSubview:_titleLabel];
+		
+		self.backgroundColor				= kMenuViewCellBGColor;
+        self.backgroundView.backgroundColor = kMenuViewCellBGColor;
+        self.contentView.backgroundColor	= kMenuViewCellBGColor;
+		self.selectedBackgroundView			= vSelected;
 		
 		[_titleLabel release];
 		[vTop release];
 		[vBottom release];
+		[vSelected release];
+		[vTopSel release];
     }
     return self;
 }
