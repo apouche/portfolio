@@ -105,10 +105,14 @@
 		// don't exceed the maximum shift set
 		posX = posX > kMasterPanShiftMax ? kMasterPanShiftMax : posX;
 		
+		JALogD(@"posx %f", posX);
+		
 		_menuController.view.frame = CGRectMake(posX,
 												JAViewY(_menuController.view),
 												JAViewW(_menuController.view),
 												JAViewH(_menuController.view));
+		
+		_menuController.darkView.alpha = 0.75f - (posX+100.f)*0.01f;
 	}
 }
 

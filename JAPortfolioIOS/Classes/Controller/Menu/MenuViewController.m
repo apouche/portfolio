@@ -21,7 +21,8 @@
 #define kMenuViewControllerCellIdentifier @"kMenuViewControllerCellIdentifier"
 
 @implementation MenuViewController
-@synthesize tableView = _tableView;
+@synthesize tableView	= _tableView;
+@synthesize darkView	= _darkView;
 
 #pragma mark UIViewController
 
@@ -47,9 +48,18 @@
 	_tableView.dataSource		= self;
 	_tableView.backgroundColor	= kMenuViewCellBGColor;
 	_tableView.separatorStyle	= UITableViewCellSeparatorStyleNone;
+	
+	_darkView	= [[UIView alloc] initWithFrame:self.view.bounds];
+	_darkView.backgroundColor			= [UIColor blackColor];
+	_darkView.autoresizingMask			= UIViewAutoresizingFlexibleHeight;
+	_darkView.alpha						= 0.f;
+	_darkView.userInteractionEnabled	= NO;
+	
 	[self.view addSubview:_tableView];
+	[self.view addSubview:_darkView];
 	
 	[_tableView release];
+	[_darkView release];
 }
 
 - (void)didReceiveMemoryWarning

@@ -13,7 +13,8 @@
 	NSDictionary*			_sections;
 }
 
-@property (nonatomic, readonly) UITableView* tableView;
+@property (nonatomic, readonly) UITableView*	tableView;
+@property (nonatomic, readonly) UIView*			darkView;
 
 - (id)objectAtIndexPath:(NSIndexPath*)path;
 
