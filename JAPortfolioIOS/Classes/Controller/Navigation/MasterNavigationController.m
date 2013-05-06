@@ -16,6 +16,8 @@
 // Managers
 #import "JAControllerManager.h"
 
+#define kMasterPanShiftMax	(320.f-100.f)
+
 @interface MasterNavigationController ()
 
 @end
@@ -73,6 +75,9 @@
 	[_panningView addGestureRecognizer:pan];
 	[pan setMaximumNumberOfTouches:1];
 	[pan release];
+	
+	// key value observer
+	[_panningView addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -83,6 +88,28 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -
+#pragma mark KVO
+#pragma mark -
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+	// handle menu positioning to have a nice effect the view panning is being moved
+	if (object == _panningView)
+	{
+		// simple formula to have a nice appereance feeling
+		CGFloat posX = JAViewX(_panningView)*(100/kMasterPanShiftMax)-100.f;
+		
+		// don't exceed the maximum shift set
+		posX = posX > kMasterPanShiftMax ? kMasterPanShiftMax : posX;
+		
+		_menuController.view.frame = CGRectMake(posX,
+												JAViewY(_menuController.view),
+												JAViewW(_menuController.view),
+												JAViewH(_menuController.view));
+	}
 }
 
 #pragma mark -
@@ -250,7 +277,7 @@
 
 - (void)onTouchMenuButton:(id)sender
 {
-	[self shiftPanViewToOffset:JAViewX(_panningView) > 0 ? 0 : 250.f];
+	[self shiftPanViewToOffset:JAViewX(_panningView) > 0 ? 0 : kMasterPanShiftMax];
 }
 
 @end
