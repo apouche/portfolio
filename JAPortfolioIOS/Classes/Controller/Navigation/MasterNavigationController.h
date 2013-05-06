@@ -15,6 +15,13 @@ typedef void (^NavigationBlock)(void);
 
 @interface MasterNavigationController : UIViewController
 {
+	struct MasterPanData
+	{
+		CGRect		initialFrame;
+		UIView*		viewMoving;
+		CGFloat		direction;	// < 0 => left & > 0 => right
+	} _panData;
+	
 	NSMutableArray*		_stackControllers;
 	MenuViewController* _menuController;
 	
@@ -34,6 +41,7 @@ typedef void (^NavigationBlock)(void);
 
 #pragma mark Pan Related
 
+- (void)onPanGesture:(UIPanGestureRecognizer*)pan;
 - (void)shiftPanViewToOffset:(CGFloat)offset;
 
 #pragma mark Events

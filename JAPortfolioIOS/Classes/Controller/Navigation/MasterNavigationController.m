@@ -49,21 +49,30 @@
 {
     [super viewDidLoad];
 	
-	// Do any additional setup after loading the view.
+	// menu controller
 	_menuController = [[MenuViewController alloc] initWithNibName:nil bundle:nil];
 	_menuController.view.frame = CGRectMake(0, 0, JAViewW(self.view), JAViewH(self.view));
 	
+	// panning view
 	_panningView = [[UIView alloc] initWithFrame:CGRectMake(JAViewW(self.view), 0, JAViewW(self.view), JAViewH(self.view))];
 	_panningView.backgroundColor = [UIColor clearColor];
 	
+	// nav bar
 	_navBar = [[MasterNavigationBar alloc] initWithFrame:CGRectMake(0, 0, JAViewW(self.view), 40)];
 	_navBar.alpha = 1.f;
 	[_navBar.menuButton addTarget:self action:@selector(onTouchMenuButton:) forControlEvents:UIControlEventTouchUpInside];
 	
+	// view hierarchy
 	[_panningView addSubview:_navBar];
 	
 	[self.view addSubview:_menuController.view];
 	[self.view addSubview:_panningView];
+	
+	// gesture recognizer
+	UIPanGestureRecognizer* pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanGesture:)];
+	[_panningView addGestureRecognizer:pan];
+	[pan setMaximumNumberOfTouches:1];
+	[pan release];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -93,6 +102,45 @@
 														 JAViewH(_panningView));
 					 }
 					 completion:nil];
+}
+
+- (void)onPanGesture:(UIPanGestureRecognizer *)pan
+{
+	UIView* viewPanned = pan.view;
+	
+	if (pan.state == UIGestureRecognizerStateBegan)
+	{
+		_panData.initialFrame	= viewPanned.frame;
+		_panData.viewMoving		= viewPanned;
+		_panData.direction		= 0.f;
+	}
+	
+	if (pan.state == UIGestureRecognizerStateChanged)
+	{
+		CGPoint translation = [pan translationInView:self.view];
+		CGPoint velocity	= [pan velocityInView:self.view];
+
+		CGFloat posX		= translation.x+_panData.initialFrame.origin.x;
+		
+		_panData.direction	= JASign(velocity.x);
+		
+		JALogD(@"%@ %@", NSStringFromCGPoint(translation), NSStringFromCGPoint(velocity));
+		
+		viewPanned.frame = CGRectMake(posX > 0 ? posX : 0, JAViewY(viewPanned), JAViewW(viewPanned), JAViewH(viewPanned));
+	}
+	
+	if (pan.state == UIGestureRecognizerStateEnded || pan.state == UIGestureRecognizerStateCancelled)
+	{
+		[UIView animateWithDuration:0.35f delay:0
+							options:UIViewAnimationOptionBeginFromCurrentState
+						  animations:^{
+							  viewPanned.frame = CGRectMake(_panData.direction > 0 ? JAViewW(self.view) - 100 : 0,
+															JAViewY(viewPanned),
+															JAViewW(viewPanned),
+															JAViewH(viewPanned));
+		}
+						 completion:nil];
+	}
 }
 
 #pragma mark -
